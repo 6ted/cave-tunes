@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import { 
   useEffect,
   useState
@@ -71,7 +72,7 @@ localStorage.getItem("token");
 const response =
 await fetch(
 
-"http://localhost:5000/api/music/my-uploads",
+SHARED_API_BASE_URL + "/api/music/my-uploads",
 
 {
 

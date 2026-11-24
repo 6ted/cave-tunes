@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
   ArrowRight,
   ChevronRight,
@@ -106,11 +107,7 @@ function CreatorVerificationBadge({ creator }) {
 // API CONFIGURATION — LOCAL NETWORK + PRODUCTION
 // ======================================================
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.DEV
-    ? `http://${window.location.hostname}:5000`
-    : window.location.origin);
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 // All local services use the same backend.
 const ADS_API_BASE_URL = API_BASE_URL;

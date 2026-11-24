@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 
 import {
     useCallback,
@@ -38,11 +39,7 @@ import "./AdminAds.css";
 // API CONFIGURATION
 // ======================================================
 
-const API_BASE_URL =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1"
-        ? "http://localhost:5000"
-        : "https://api.cavetunes.site";
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 const ADS_ENDPOINT = `${API_BASE_URL}/api/ads`;
 

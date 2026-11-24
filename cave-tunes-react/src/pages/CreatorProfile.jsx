@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
   ArrowLeft,
   MapPin,
@@ -474,13 +475,7 @@ function CreatorProfile() {
      API BASE URL
   ========================================== */
 
-  const API_BASE_URL =
-    import.meta.env.VITE_API_URL ||
-    (
-      window.location.hostname === "localhost"
-        ? "http://localhost:5000"
-        : "https://api.cavetunes.site"
-    );
+  const API_BASE_URL = SHARED_API_BASE_URL;
 
 
   /* ==========================================

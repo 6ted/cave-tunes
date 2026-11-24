@@ -1,10 +1,7 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import { useEffect, useState } from "react";
 
-const API_BASE_URL =
-window.location.hostname === "localhost" ||
-window.location.hostname === "127.0.0.1"
-? "http://localhost:5000"
-: window.location.origin;
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 function useCreators(role) {
 const [creators, setCreators] = useState([]);

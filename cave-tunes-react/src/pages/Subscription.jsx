@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
 ArrowLeft,
 Crown,
@@ -21,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../services/api";
 import "./Subscription.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL = SHARED_API_BASE_URL;
 
 const COUNTRY_CURRENCIES = {
 MALAWI: "MWK",

@@ -1,11 +1,8 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 
 import { useEffect, useState } from "react";
 
-const API_URL =
-  import.meta.env.VITE_API_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://api.cavetunes.site");
+const API_URL = SHARED_API_BASE_URL;
 
 const Premium = () => {
   const [subscription, setSubscription] = useState(null);

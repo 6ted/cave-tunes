@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
   useCallback,
   useEffect,
@@ -15,11 +16,7 @@ import {
  
 } from "../services/api";
 
-const API_BASE_URL =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1"
-    ? "http://localhost:5000"
-    : window.location.origin;
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 
 // ======================================================

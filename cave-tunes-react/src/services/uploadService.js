@@ -1,5 +1,6 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "./api";
 
-const API_URL = "http://localhost:5000";
+const API_URL = SHARED_API_BASE_URL;
 
 export function uploadRelease(formData, onProgress) {
     return new Promise((resolve, reject) => {

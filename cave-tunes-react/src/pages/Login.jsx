@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 
 import {
   useEffect,
@@ -152,11 +153,7 @@ const handleSubmit = async (event) => {
 // ======================================================
 
 const handleGoogleLogin = () => {
-  const API_BASE_URL =
-    import.meta.env.VITE_API_BASE_URL ||
-    (import.meta.env.DEV
-      ? `http://${window.location.hostname}:5000`
-      : window.location.origin);
+  const API_BASE_URL = SHARED_API_BASE_URL;
 
   window.location.href =
     `${API_BASE_URL}/api/auth/google`;

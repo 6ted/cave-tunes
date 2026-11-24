@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 // ======================================================
 // CAVE TUNES
 // MONETIZATION STATUS
@@ -20,8 +21,7 @@ import "./MonetizationStatus.css";
 // API
 // ======================================================
 
-const API_BASE_URL =
-    `http://${window.location.hostname}:5000`;
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 
 // ======================================================

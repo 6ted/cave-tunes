@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
     useEffect,
     useState
@@ -28,7 +29,7 @@ function ReleaseManager(){
 
 
     const API =
-    "http://localhost:5000";
+    SHARED_API_BASE_URL + "";
 
 
 

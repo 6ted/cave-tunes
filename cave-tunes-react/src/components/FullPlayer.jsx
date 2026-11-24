@@ -1,3 +1,4 @@
+import { API_BASE_URL as SHARED_API_BASE_URL } from "../services/api";
 import {
   X,
   Play,
@@ -33,12 +34,7 @@ import { useAuth } from "../context/AuthContext";
 // API CONFIGURATION
 // ======================================================
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL ||
-  (window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1"
-    ? "http://localhost:5000"
-    : "https://api.cavetunes.site");
+const API_BASE_URL = SHARED_API_BASE_URL;
 
 // ======================================================
 // FORMAT TIME
