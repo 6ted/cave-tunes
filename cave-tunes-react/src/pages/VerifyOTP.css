@@ -1,0 +1,150 @@
+
+.otp-page {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+}
+
+.otp-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 28px;
+  border-radius: 18px;
+  background: var(--card-bg, #151515);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: #fff;
+}
+
+.otp-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.13);
+}
+
+.otp-card h1 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.otp-description {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.otp-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #c084fc;
+  font-size: 14px;
+  margin-bottom: 22px;
+  overflow-wrap: anywhere;
+}
+
+.otp-google-message {
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.otp-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  text-align: left;
+}
+
+.otp-card label {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.otp-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: #202020;
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 12px;
+  text-align: center;
+  outline: none;
+}
+
+.otp-card input:focus {
+  border-color: #a855f7;
+}
+
+.otp-card form button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #ec4899
+  );
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.otp-card button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.otp-error {
+  color: #ff7777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.otp-success {
+  color: #4ade80;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.otp-resend {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 24px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.otp-resend button,
+.otp-back {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #c084fc;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.otp-back {
+  margin-top: 25px;
+  color: #aaa;
+  font-size: 13px;
+}

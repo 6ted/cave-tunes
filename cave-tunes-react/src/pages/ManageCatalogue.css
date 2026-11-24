@@ -1,0 +1,922 @@
+/* ======================================================
+   CAVE TUNES
+   MANAGE CATALOGUE
+   src/pages/ManageCatalogue.css
+====================================================== */
+
+.manage-catalogue-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 120px;
+  color: #ffffff;
+}
+
+
+/* ======================================================
+   LOADING
+====================================================== */
+
+.manage-catalogue-loading {
+  min-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  color: #aaa;
+
+  font-size: 15px;
+}
+
+.loading-spinner {
+  animation: manageCatalogueSpin 1s linear infinite;
+}
+
+@keyframes manageCatalogueSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.manage-catalogue-header {
+  margin-bottom: 28px;
+}
+
+
+/* ======================================================
+   BACK BUTTON
+====================================================== */
+
+.manage-catalogue-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 24px;
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #bdbdbd;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.manage-catalogue-back:hover {
+  color: #ffffff;
+
+  background: rgba(235, 177, 19, 0.08);
+
+  border-color: rgba(235, 177, 19, 0.28);
+
+  transform: translateX(-2px);
+}
+
+
+/* ======================================================
+   HEADING
+====================================================== */
+
+.manage-catalogue-heading {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(235, 177, 19, 0.09),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ======================================================
+   COVER
+====================================================== */
+
+.manage-catalogue-cover {
+  width: 128px;
+  height: 128px;
+
+  flex: 0 0 128px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #252525,
+      #151515
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.4);
+
+  color: #ebb113;
+}
+
+.manage-catalogue-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* ======================================================
+   TYPE
+====================================================== */
+
+.manage-catalogue-type {
+  display: inline-flex;
+
+  margin-bottom: 8px;
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  background: rgba(235, 177, 19, 0.12);
+
+  border: 1px solid rgba(235, 177, 19, 0.22);
+
+  color: #ebb113;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.manage-catalogue-heading h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.8px;
+}
+
+
+.manage-catalogue-heading p {
+  margin: 8px 0 0;
+
+  color: #9b9b9b;
+
+  font-size: 14px;
+}
+
+
+/* ======================================================
+   MESSAGES
+====================================================== */
+
+.catalogue-success,
+.manage-catalogue-page .error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+  padding: 13px 16px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+}
+
+
+.catalogue-success {
+  color: #dff7e5;
+
+  background: rgba(46, 160, 67, 0.10);
+
+  border: 1px solid rgba(46, 160, 67, 0.22);
+}
+
+
+.manage-catalogue-page .error-message {
+  color: #ffd9d9;
+
+  background: rgba(220, 60, 60, 0.09);
+
+  border: 1px solid rgba(220, 60, 60, 0.22);
+}
+
+
+/* ======================================================
+   STATS
+====================================================== */
+
+.catalogue-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.catalogue-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 110px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.catalogue-stat:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(235, 177, 19, 0.20);
+
+  background: rgba(235, 177, 19, 0.045);
+}
+
+
+.catalogue-stat svg {
+  margin-bottom: 8px;
+
+  color: #ebb113;
+}
+
+
+.catalogue-stat strong {
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+
+.catalogue-stat span {
+  margin-top: 3px;
+
+  color: #888;
+
+  font-size: 12px;
+}
+
+
+/* ======================================================
+   MANAGEMENT CARD
+====================================================== */
+
+.catalogue-management {
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ======================================================
+   MANAGEMENT HEADER
+====================================================== */
+
+.catalogue-management-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px 24px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+
+.catalogue-management-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 19px;
+  font-weight: 750;
+}
+
+
+.catalogue-management-header p {
+  margin: 5px 0 0;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* ======================================================
+   EDIT CATALOGUE BUTTON
+====================================================== */
+
+.edit-catalogue-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(235, 177, 19, 0.28);
+  border-radius: 10px;
+
+  background: rgba(235, 177, 19, 0.09);
+
+  color: #ebb113;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.edit-catalogue-button:hover {
+  background: rgba(235, 177, 19, 0.16);
+
+  border-color: rgba(235, 177, 19, 0.45);
+
+  transform: translateY(-1px);
+}
+
+
+/* ======================================================
+   TRACK LIST
+====================================================== */
+
+.catalogue-track-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ======================================================
+   TRACK
+====================================================== */
+
+.catalogue-track {
+  display: grid;
+
+  grid-template-columns:
+    36px
+    52px
+    minmax(180px, 1fr)
+    auto
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  min-height: 78px;
+
+  padding: 12px 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+
+  transition:
+    background 0.2s ease;
+}
+
+
+.catalogue-track:last-child {
+  border-bottom: none;
+}
+
+
+.catalogue-track:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+
+.catalogue-track.active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(235, 177, 19, 0.08),
+      rgba(235, 177, 19, 0.025)
+    );
+}
+
+
+/* ======================================================
+   TRACK NUMBER
+====================================================== */
+
+.catalogue-track-number {
+  color: #666;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+.catalogue-track.active
+.catalogue-track-number {
+  color: #ebb113;
+}
+
+
+/* ======================================================
+   TRACK COVER
+====================================================== */
+
+.catalogue-track-cover {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background: #202020;
+
+  color: #777;
+}
+
+
+.catalogue-track-cover img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ======================================================
+   TRACK INFO
+====================================================== */
+
+.catalogue-track-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.catalogue-track-info strong {
+  overflow: hidden;
+
+  color: #eeeeee;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.catalogue-track.active
+.catalogue-track-info strong {
+  color: #ebb113;
+}
+
+
+.catalogue-track-info span {
+  overflow: hidden;
+
+  color: #777;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* ======================================================
+   TRACK STATS
+====================================================== */
+
+.catalogue-track-stats {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  color: #707070;
+
+  font-size: 11px;
+}
+
+
+.catalogue-track-stats span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+.catalogue-track-stats svg {
+  color: #888;
+}
+
+
+/* ======================================================
+   TRACK ACTIONS
+====================================================== */
+
+.catalogue-track-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.catalogue-track-actions button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #999;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.catalogue-track-actions button:hover {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.075);
+
+  border-color: rgba(255, 255, 255, 0.13);
+
+  transform: translateY(-1px);
+}
+
+
+.catalogue-track-actions button:first-child {
+  color: #ebb113;
+
+  border-color: rgba(235, 177, 19, 0.18);
+
+  background: rgba(235, 177, 19, 0.07);
+}
+
+
+.catalogue-track-actions button:first-child:hover {
+  background: rgba(235, 177, 19, 0.15);
+
+  border-color: rgba(235, 177, 19, 0.35);
+}
+
+
+.catalogue-track-actions button:last-child:hover {
+  color: #ff6b6b;
+
+  background: rgba(255, 70, 70, 0.08);
+
+  border-color: rgba(255, 70, 70, 0.20);
+}
+
+
+.catalogue-track-actions button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ======================================================
+   EMPTY STATE
+====================================================== */
+
+.empty-catalogue {
+  min-height: 260px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  text-align: center;
+
+  color: #777;
+}
+
+
+.empty-catalogue svg {
+  margin-bottom: 14px;
+
+  color: #ebb113;
+
+  opacity: 0.7;
+}
+
+
+.empty-catalogue h3 {
+  margin: 0;
+
+  color: #ddd;
+
+  font-size: 16px;
+}
+
+
+.empty-catalogue p {
+  margin: 7px 0 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 800px) {
+
+  .manage-catalogue-page {
+    padding: 20px 15px 110px;
+  }
+
+
+  .manage-catalogue-heading {
+    padding: 20px;
+
+    gap: 16px;
+  }
+
+
+  .manage-catalogue-cover {
+    width: 100px;
+    height: 100px;
+
+    flex-basis: 100px;
+  }
+
+
+  .manage-catalogue-heading h1 {
+    font-size: 25px;
+  }
+
+
+  .catalogue-track {
+    grid-template-columns:
+      28px
+      48px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 11px;
+
+    padding: 12px 14px;
+  }
+
+
+  .catalogue-track-stats {
+    display: none;
+  }
+
+
+  .catalogue-track-actions button {
+    width: 34px;
+    height: 34px;
+  }
+
+}
+
+
+/* ======================================================
+   SMALL MOBILE
+====================================================== */
+
+@media (max-width: 560px) {
+
+  .manage-catalogue-page {
+    padding: 16px 10px 100px;
+  }
+
+
+  .manage-catalogue-heading {
+    align-items: flex-start;
+
+    padding: 16px;
+
+    border-radius: 15px;
+  }
+
+
+  .manage-catalogue-cover {
+    width: 76px;
+    height: 76px;
+
+    flex-basis: 76px;
+
+    border-radius: 10px;
+  }
+
+
+  .manage-catalogue-heading h1 {
+    font-size: 21px;
+  }
+
+
+  .manage-catalogue-heading p {
+    font-size: 12px;
+  }
+
+
+  .manage-catalogue-back {
+    margin-bottom: 16px;
+  }
+
+
+  .catalogue-stats {
+    gap: 8px;
+  }
+
+
+  .catalogue-stat {
+    min-height: 90px;
+
+    padding: 12px 5px;
+  }
+
+
+  .catalogue-stat strong {
+    font-size: 18px;
+  }
+
+
+  .catalogue-stat span {
+    font-size: 10px;
+  }
+
+
+  .catalogue-management {
+    border-radius: 15px;
+  }
+
+
+  .catalogue-management-header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 17px;
+  }
+
+
+  .edit-catalogue-button {
+    width: 100%;
+  }
+
+
+  .catalogue-track {
+    grid-template-columns:
+      22px
+      44px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 8px;
+
+    padding: 10px;
+  }
+
+
+  .catalogue-track-cover {
+    width: 44px;
+    height: 44px;
+  }
+
+
+  .catalogue-track-info strong {
+    font-size: 13px;
+  }
+
+
+  .catalogue-track-info span {
+    font-size: 11px;
+  }
+
+
+  .catalogue-track-actions {
+    gap: 3px;
+  }
+
+
+  .catalogue-track-actions button {
+    width: 31px;
+    height: 31px;
+  }
+
+
+  .catalogue-track-actions
+  button:nth-child(2) {
+    display: none;
+  }
+
+}

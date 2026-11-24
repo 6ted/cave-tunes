@@ -1,0 +1,1135 @@
+
+/* ======================================================
+   CAVE TUNES — ALBUMS PAGE
+   ====================================================== */
+
+.albums-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 42px;
+    color: #ffffff;
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(235, 177, 19, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(235, 177, 19, 0.06),
+            transparent 28%
+        ),
+        #121212;
+    overflow-x: hidden;
+}
+
+
+/* ======================================================
+   BACKGROUND GLOW
+   ====================================================== */
+
+.albums-page::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: -220px;
+    right: -180px;
+
+    background: rgba(235, 177, 19, 0.055);
+
+    filter: blur(120px);
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ======================================================
+   CONTENT LAYER
+   ====================================================== */
+
+.albums-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ======================================================
+   PAGE HEADER
+   ====================================================== */
+
+.albums-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 48px;
+}
+
+
+.albums-page-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    color: #ebb113;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.albums-page-header h1 {
+    margin: 0;
+
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+
+    font-weight: 800;
+    letter-spacing: -2px;
+
+    color: #ffffff;
+}
+
+
+.albums-page-header p {
+    margin: 14px 0 0;
+
+    max-width: 600px;
+
+    color: #999999;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   REFRESH BUTTON
+   ====================================================== */
+
+.albums-refresh-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(235, 177, 19, 0.25);
+    border-radius: 10px;
+
+    background: rgba(235, 177, 19, 0.07);
+
+    color: #ebb113;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.albums-refresh-button:hover {
+    background: rgba(235, 177, 19, 0.14);
+    border-color: rgba(235, 177, 19, 0.45);
+
+    transform: translateY(-2px);
+}
+
+
+.albums-refresh-button:active {
+    transform: translateY(0);
+}
+
+
+/* ======================================================
+   ERROR MESSAGE
+   ====================================================== */
+
+.albums-error {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 30px;
+    padding: 15px 18px;
+
+    border: 1px solid rgba(255, 80, 80, 0.22);
+    border-radius: 12px;
+
+    background: rgba(255, 60, 60, 0.06);
+
+    color: #ff9b9b;
+
+    font-size: 14px;
+}
+
+
+.albums-error span {
+    flex: 1;
+}
+
+
+.albums-error button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+
+.albums-error button:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ======================================================
+   CONTENT
+   ====================================================== */
+
+.albums-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 62px;
+}
+
+
+/* ======================================================
+   ALBUM SECTION
+   ====================================================== */
+
+.albums-section {
+    width: 100%;
+}
+
+
+/* ======================================================
+   SECTION HEADER
+   ====================================================== */
+
+.albums-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+
+.albums-section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.albums-section-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #ebb113;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+
+.albums-section-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+
+/* ======================================================
+   ALBUM GRID
+   ====================================================== */
+
+.albums-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(190px, 1fr)
+        );
+
+    gap: 25px 20px;
+}
+
+
+/* ======================================================
+   ALBUM CARD
+   ====================================================== */
+
+.albums-card {
+    min-width: 0;
+
+    padding: 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.albums-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(235, 177, 19, 0.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(235, 177, 19, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ======================================================
+   ALBUM COVER
+   ====================================================== */
+
+.albums-card-cover {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #1b1b1b;
+}
+
+
+.albums-card-cover img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.3s ease;
+}
+
+
+.albums-card:hover
+.albums-card-cover img {
+    transform: scale(1.06);
+}
+
+
+/* ======================================================
+   COVER OVERLAY
+   ====================================================== */
+
+.albums-card-cover::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.40)
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.25s ease;
+}
+
+
+.albums-card:hover
+.albums-card-cover::after {
+    opacity: 1;
+}
+
+
+/* ======================================================
+   PLACEHOLDER
+   ====================================================== */
+
+.albums-card-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #202020,
+            #171717
+        );
+
+    color: rgba(235, 177, 19, 0.65);
+}
+
+
+/* ======================================================
+   RANK BADGE
+   ====================================================== */
+
+.albums-rank {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    z-index: 5;
+
+    min-width: 34px;
+    height: 30px;
+
+    padding: 0 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(235, 177, 19, 0.40);
+
+    border-radius: 8px;
+
+    background:
+        rgba(12, 12, 12, 0.82);
+
+    backdrop-filter: blur(8px);
+
+    color: #ebb113;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ======================================================
+   PLAY BUTTON
+   ====================================================== */
+
+.albums-play-button {
+    position: absolute;
+
+    right: 11px;
+    bottom: 11px;
+
+    z-index: 6;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ebb113;
+
+    color: #121212;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px)
+        scale(0.88);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.35);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        background 0.2s ease;
+}
+
+
+.albums-card:hover
+.albums-play-button {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.albums-play-button:hover {
+    background: #f4c334;
+}
+
+
+.albums-play-button:active {
+    transform:
+        translateY(0)
+        scale(0.93);
+}
+
+
+/* ======================================================
+   ALBUM INFO
+   ====================================================== */
+
+.albums-card-info {
+    padding:
+        13px
+        2px
+        3px;
+}
+
+
+.albums-card-info h3 {
+    margin: 0;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.albums-card-info p {
+    margin: 5px 0 0;
+
+    overflow: hidden;
+
+    color: #929292;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ======================================================
+   TRACK COUNT
+   ====================================================== */
+
+.albums-card-meta {
+    display: flex;
+    align-items: center;
+
+    margin-top: 9px;
+
+    color: #686868;
+
+    font-size: 11px;
+}
+
+
+/* ======================================================
+   CARD STATS
+   ====================================================== */
+
+.albums-card-stats {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 9px;
+
+    color: #7e7e7e;
+
+    font-size: 11px;
+}
+
+
+.albums-card-stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.albums-card-stats svg:first-child {
+    color: #ebb113;
+}
+
+
+/* ======================================================
+   EMPTY STATE
+   ====================================================== */
+
+.albums-empty {
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px;
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    text-align: center;
+}
+
+
+.albums-empty svg {
+    margin-bottom: 14px;
+
+    color: rgba(235, 177, 19, 0.55);
+}
+
+
+.albums-empty h3 {
+    margin: 0;
+
+    color: #dddddd;
+
+    font-size: 17px;
+}
+
+
+.albums-empty p {
+    max-width: 450px;
+
+    margin: 8px 0 0;
+
+    color: #727272;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   LOADING STATE
+   ====================================================== */
+
+.albums-loading {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.albums-loading-logo {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(235, 177, 19, 0.08);
+
+    border:
+        1px solid
+        rgba(235, 177, 19, 0.15);
+
+    animation:
+        albumsPulse 1.7s
+        ease-in-out
+        infinite;
+}
+
+
+.albums-loading-logo img {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+}
+
+
+.albums-loading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+
+.albums-loading p {
+    margin: 8px 0 0;
+
+    color: #777777;
+
+    font-size: 13px;
+}
+
+
+@keyframes albumsPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* ======================================================
+   RESPONSIVE — LARGE DESKTOP
+   ====================================================== */
+
+@media (min-width: 1500px) {
+
+    .albums-grid {
+        grid-template-columns:
+            repeat(
+                6,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+/* ======================================================
+   RESPONSIVE — DESKTOP
+   ====================================================== */
+
+@media (max-width: 1250px) {
+
+    .albums-page {
+        padding: 34px;
+    }
+
+
+    .albums-grid {
+        grid-template-columns:
+            repeat(
+                5,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+/* ======================================================
+   RESPONSIVE — TABLET
+   ====================================================== */
+
+@media (max-width: 1000px) {
+
+    .albums-page {
+        padding: 28px;
+    }
+
+
+    .albums-grid {
+        grid-template-columns:
+            repeat(
+                4,
+                minmax(0, 1fr)
+            );
+
+        gap: 18px;
+    }
+
+
+    .albums-card {
+        padding: 9px;
+    }
+
+
+    .albums-page-header {
+        margin-bottom: 38px;
+    }
+
+}
+
+
+/* ======================================================
+   RESPONSIVE — SMALL TABLET
+   ====================================================== */
+
+@media (max-width: 760px) {
+
+    .albums-page {
+        padding: 24px 18px;
+    }
+
+
+    .albums-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .albums-refresh-button {
+        align-self: flex-start;
+    }
+
+
+    .albums-page-header h1 {
+        font-size: 42px;
+    }
+
+
+    .albums-content {
+        gap: 48px;
+    }
+
+
+    .albums-section-heading h2 {
+        font-size: 23px;
+    }
+
+
+    .albums-grid {
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+
+        gap: 15px;
+    }
+
+
+    .albums-card {
+        padding: 8px;
+
+        border-radius: 11px;
+    }
+
+
+    .albums-card-cover {
+        border-radius: 8px;
+    }
+
+
+    .albums-card-info {
+        padding-top: 10px;
+    }
+
+
+    .albums-card-info h3 {
+        font-size: 13px;
+    }
+
+
+    .albums-card-info p {
+        font-size: 11px;
+    }
+
+
+    .albums-card-stats {
+        gap: 8px;
+    }
+
+
+    .albums-play-button {
+        width: 36px;
+        height: 36px;
+
+        right: 8px;
+        bottom: 8px;
+    }
+
+}
+
+
+/* ======================================================
+   RESPONSIVE — PHONE
+   ====================================================== */
+
+@media (max-width: 520px) {
+
+    .albums-page {
+        padding: 22px 14px 100px;
+    }
+
+
+    .albums-page-header {
+        margin-bottom: 32px;
+    }
+
+
+    .albums-page-label {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+
+    .albums-page-header h1 {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+    }
+
+
+    .albums-page-header p {
+        font-size: 13px;
+    }
+
+
+    .albums-content {
+        gap: 42px;
+    }
+
+
+    .albums-section-header {
+        margin-bottom: 17px;
+    }
+
+
+    .albums-section-heading h2 {
+        font-size: 21px;
+    }
+
+
+    .albums-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap: 14px;
+    }
+
+
+    .albums-card {
+        padding: 7px;
+    }
+
+
+    .albums-card-info {
+        padding:
+            10px
+            2px
+            3px;
+    }
+
+
+    .albums-card-info h3 {
+        font-size: 13px;
+    }
+
+
+    .albums-card-info p {
+        margin-top: 4px;
+
+        font-size: 11px;
+    }
+
+
+    .albums-card-meta {
+        margin-top: 7px;
+
+        font-size: 10px;
+    }
+
+
+    .albums-card-stats {
+        margin-top: 7px;
+
+        font-size: 9px;
+    }
+
+
+    .albums-rank {
+        top: 7px;
+        left: 7px;
+
+        min-width: 29px;
+        height: 25px;
+
+        padding: 0 6px;
+
+        font-size: 10px;
+    }
+
+
+    .albums-play-button {
+        width: 34px;
+        height: 34px;
+
+        right: 7px;
+        bottom: 7px;
+    }
+
+
+    .albums-error {
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        font-size: 12px;
+    }
+
+
+    .albums-empty {
+        min-height: 190px;
+
+        padding: 25px 18px;
+    }
+
+}
+
+
+/* ======================================================
+   VERY SMALL PHONES
+   ====================================================== */
+
+@media (max-width: 360px) {
+
+    .albums-page {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+
+    .albums-grid {
+        gap: 10px;
+    }
+
+
+    .albums-card {
+        padding: 6px;
+    }
+
+
+    .albums-card-info h3 {
+        font-size: 12px;
+    }
+
+
+    .albums-card-info p {
+        font-size: 10px;
+    }
+
+
+    .albums-card-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+}
+
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .albums-card,
+    .albums-card-cover img,
+    .albums-play-button,
+    .albums-refresh-button {
+        transition: none;
+    }
+
+
+    .albums-loading-logo {
+        animation: none;
+    }
+
+}
+

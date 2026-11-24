@@ -1,0 +1,541 @@
+
+/* ======================================================
+   CAVE TUNES - ARTISTS PAGE
+====================================================== */
+
+.artists-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ======================================================
+   SUMMARY
+====================================================== */
+
+.artists-summary {
+  display: flex;
+  align-items: center;
+
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.artists-summary span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: rgba(235, 177, 19, 0.1);
+
+  border: 1px solid rgba(235, 177, 19, 0.18);
+
+  color: #ebb113;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   ARTIST GRID
+====================================================== */
+
+.artists-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(190px, 1fr)
+    );
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* ======================================================
+   ARTIST CARD
+====================================================== */
+
+.artist-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #181818;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  cursor: pointer;
+}
+
+
+.artist-card:hover {
+  transform: translateY(-4px);
+
+  background: #1d1d1d;
+
+  border-color:
+    rgba(235, 177, 19, 0.25);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ======================================================
+   ARTIST IMAGE
+====================================================== */
+
+.artist-card-image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #292929,
+      #151515
+    );
+
+  color: #ebb113;
+}
+
+
+.artist-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+.artist-card:hover
+.artist-card-image img {
+  transform: scale(1.04);
+}
+
+
+/* ======================================================
+   IMAGE FALLBACK
+====================================================== */
+
+.artist-image-fallback {
+  position: absolute;
+
+  inset: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #292929,
+      #151515
+    );
+
+  color: #ebb113;
+}
+
+
+/* ======================================================
+   ARTIST INFO
+====================================================== */
+
+.artist-card-info {
+  padding: 16px;
+}
+
+
+.artist-card-info h2 {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 650;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+/* ======================================================
+   COUNTRY
+====================================================== */
+
+.artist-country {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 8px;
+
+  color: #999;
+
+  font-size: 12px;
+}
+
+
+.artist-country svg {
+  flex-shrink: 0;
+
+  color: #ebb113;
+}
+
+
+.artist-country span {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+/* ======================================================
+   ROLE
+====================================================== */
+
+.artist-role {
+  display: inline-flex;
+
+  margin-top: 10px;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(235, 177, 19, 0.08);
+
+  border: 1px solid rgba(235, 177, 19, 0.15);
+
+  color: #ebb113;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+
+/* ======================================================
+   LOADING
+====================================================== */
+
+.artists-loading {
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+.artists-loading-spinner {
+  animation:
+    artistsSpin 1s linear infinite;
+}
+
+
+@keyframes artistsSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* ======================================================
+   EMPTY
+====================================================== */
+
+.artists-empty {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px;
+
+  background: #181818;
+
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  text-align: center;
+}
+
+
+.artists-empty-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 50%;
+
+  background: rgba(235, 177, 19, 0.08);
+
+  color: #ebb113;
+}
+
+
+.artists-empty h2 {
+  margin: 0;
+
+  color: #eee;
+
+  font-size: 17px;
+}
+
+
+.artists-empty p {
+  margin: 7px 0 0;
+
+  color: #666;
+
+  font-size: 13px;
+}
+
+
+/* ======================================================
+   ERROR
+====================================================== */
+
+.artists-error {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px;
+
+  background: rgba(220, 50, 50, 0.05);
+
+  border: 1px solid rgba(220, 50, 50, 0.15);
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  color: #ff6b6b;
+}
+
+
+.artists-error h2 {
+  margin: 12px 0 6px;
+
+  color: #eee;
+
+  font-size: 17px;
+}
+
+
+.artists-error p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+.artists-error button {
+  margin-top: 18px;
+
+  padding: 9px 16px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ebb113,
+      #ff8c00
+    );
+
+  color: #111;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.artists-error button:hover {
+  filter: brightness(1.08);
+}
+
+
+/* ======================================================
+   TABLET
+====================================================== */
+
+@media (max-width: 800px) {
+
+  .artists-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+}
+
+
+/* ======================================================
+   MOBILE - COMPACT 2 COLUMN LAYOUT
+====================================================== */
+
+@media (max-width: 600px) {
+
+  .artists-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .artist-card {
+    border-radius: 13px;
+  }
+
+  .artist-card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .artist-card-info {
+    padding: 9px;
+  }
+
+  .artist-card-info h2 {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .artist-country {
+    gap: 4px;
+    margin-top: 5px;
+    font-size: 10px;
+  }
+
+  .artist-role {
+    margin-top: 7px;
+    padding: 4px 7px;
+    font-size: 9px;
+  }
+
+  .artists-summary {
+    margin-top: 16px;
+    margin-bottom: 13px;
+  }
+
+  .artists-summary span {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+}
+
+
+/* ======================================================
+   VERY SMALL PHONES
+====================================================== */
+
+@media (max-width: 380px) {
+
+  .artists-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .artist-card {
+    display: block;
+    min-width: 0;
+  }
+
+  .artist-card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .artist-card-info {
+    padding: 8px;
+  }
+
+  .artist-card-info h2 {
+    font-size: 11px;
+  }
+
+  .artist-country {
+    font-size: 9px;
+  }
+
+  .artist-role {
+    font-size: 8px;
+    padding: 3px 6px;
+  }
+
+}
+

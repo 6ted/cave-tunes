@@ -1,0 +1,10 @@
+### APPROVE WITHDRAWAL REQUEST
+
+PATCH http://localhost:5000/api/admin/withdraws/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJUZWRkeSIsImVtYWlsIjoidGVkYWxleGFuZGVyMjAyQGdtYWlsLmNvbSIsInJvbGUiOiJwcm9kdWNlciIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4NTY3OTgxOSwiZXhwIjoxNzg2Mjg0NjE5fQ.uel9ct5jk95kvpn9iI91g5aNsVD_eLqQX6v_4Q7ALis
+Content-Type: application/json
+
+
+{
+    "status":"paid"
+}    

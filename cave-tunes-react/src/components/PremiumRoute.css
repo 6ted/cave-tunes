@@ -1,0 +1,142 @@
+/* ======================================================
+   CAVE TUNES
+   PREMIUM ROUTE
+   ====================================================== */
+
+.premium-route-page {
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+
+.premium-route-card {
+    width: 100%;
+
+    max-width: 440px;
+
+    padding: 40px 28px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    backdrop-filter: blur(18px);
+}
+
+
+.premium-route-card h2 {
+    margin: 20px 0 10px;
+
+    font-size: 22px;
+
+    color: white;
+}
+
+
+.premium-route-card p {
+    color: rgba(255, 255, 255, 0.65);
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+.premium-route-spinner {
+    color: #f5c542;
+
+    animation: premiumRouteSpin 1s linear infinite;
+}
+
+
+.premium-route-crown {
+    color: #f5c542;
+}
+
+
+.premium-route-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 13px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #f5c542;
+
+    color: #111;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.premium-route-button:hover {
+    filter: brightness(1.08);
+}
+
+
+.premium-route-back {
+    margin-top: 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.premium-route-back:hover {
+    color: white;
+}
+
+
+@keyframes premiumRouteSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}

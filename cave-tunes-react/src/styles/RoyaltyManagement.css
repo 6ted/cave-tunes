@@ -1,0 +1,668 @@
+/* ============================================================
+   CAVE TUNES - ROYALTY MANAGEMENT
+   ============================================================ */
+
+.royalty-management {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px;
+    color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+.royalty-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.royalty-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.royalty-title-row svg {
+    color: #ebb113;
+}
+
+.royalty-header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.royalty-header p {
+    margin: 8px 0 0;
+    color: #999;
+}
+
+.royalty-refresh,
+.royalty-error button {
+    border: 0;
+    border-radius: 10px;
+    padding: 11px 16px;
+    background: #ebb113;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.royalty-refresh:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+.royalty-error {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(235,177,19,.35);
+    background: rgba(235,177,19,.08);
+    border-radius: 12px;
+    color: #f4d77c;
+}
+
+.royalty-error span {
+    flex: 1;
+}
+
+.royalty-error button {
+    padding: 8px 12px;
+}
+
+.royalty-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 5px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.royalty-tabs button {
+    border: 0;
+    background: transparent;
+    color: #999;
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.royalty-tabs button.active {
+    background: #ebb113;
+    color: #111;
+}
+
+.royalty-tabs button span:last-child {
+    min-width: 22px;
+    text-align: center;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.1);
+}
+
+.royalty-tabs button.active span:last-child {
+    background: rgba(0,0,0,.12);
+}
+
+.royalty-summary {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.royalty-summary-card {
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid #292929;
+    background: #171717;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.royalty-summary-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    background: rgba(235,177,19,.12);
+    color: #ebb113;
+}
+
+.royalty-summary-card span,
+.royalty-performance span,
+.royalty-detail-grid span,
+.royalty-estimate span,
+.source span {
+    display: block;
+    color: #8f8f8f;
+    font-size: 12px;
+}
+
+.royalty-summary-card strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.royalty-rate-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    border-radius: 11px;
+    background: #171717;
+    border: 1px solid #292929;
+    color: #aaa;
+}
+
+.royalty-rate-info span:not(:first-child) {
+    color: #ebb113;
+}
+
+.royalty-empty,
+.royalty-loading {
+    min-height: 300px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    text-align: center;
+    border: 1px dashed #333;
+    border-radius: 16px;
+    background: #151515;
+    padding: 30px;
+}
+
+.royalty-empty-icon {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ebb113;
+    background: rgba(235,177,19,.1);
+    margin-bottom: 14px;
+}
+
+.royalty-empty h2,
+.royalty-loading h2 {
+    margin: 0 0 7px;
+}
+
+.royalty-empty p,
+.royalty-loading p {
+    margin: 0;
+    color: #888;
+    max-width: 520px;
+}
+
+.royalty-song-list {
+    display: grid;
+    gap: 14px;
+}
+
+.royalty-song-card {
+    overflow: hidden;
+    border: 1px solid #292929;
+    background: #171717;
+    border-radius: 15px;
+}
+
+.royalty-song-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+.royalty-cover {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #222;
+    display: grid;
+    place-items: center;
+    color: #777;
+}
+
+.royalty-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.royalty-song-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.royalty-song-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.royalty-song-title-row h2 {
+    margin: 0;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.monetized-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(235,177,19,.12);
+    color: #ebb113;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.royalty-artist {
+    margin: 4px 0 0;
+    color: #bbb;
+}
+
+.royalty-album {
+    display: inline-block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 12px;
+}
+
+.royalty-song-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 9px;
+    color: #777;
+    font-size: 12px;
+}
+
+.royalty-feature {
+    padding: 3px 7px;
+    border-radius: 999px;
+    color: #ebb113;
+    background: rgba(235,177,19,.08);
+}
+
+.royalty-expand {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background: #202020;
+    color: #ddd;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.royalty-performance {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    border-top: 1px solid #292929;
+    background: #292929;
+}
+
+.royalty-performance > div {
+    min-width: 0;
+    padding: 14px 16px;
+    background: #171717;
+}
+
+.royalty-performance span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.royalty-performance strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.royalty-performance .estimated strong {
+    color: #ddd;
+}
+
+.royalty-performance .lifetime strong,
+.royalty-performance .your-share strong {
+    color: #ebb113;
+}
+
+.royalty-song-details {
+    padding: 20px;
+    border-top: 1px solid #292929;
+    background: #131313;
+}
+
+.royalty-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.royalty-detail-grid > div {
+    padding: 13px;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    background: #181818;
+}
+
+.royalty-detail-grid strong {
+    display: block;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.royalty-split-section,
+.royalty-sources {
+    margin-top: 20px;
+}
+
+.royalty-split-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.royalty-split-heading h3,
+.royalty-sources h3 {
+    margin: 0;
+}
+
+.royalty-split-heading p {
+    margin: 4px 0 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.royalty-split-heading > span {
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #222;
+    color: #aaa;
+    font-size: 11px;
+}
+
+.royalty-locked {
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 9px;
+    background: rgba(235,177,19,.08);
+    color: #ebb113;
+    font-size: 12px;
+}
+
+.no-split {
+    padding: 15px;
+    border-radius: 10px;
+    background: #181818;
+    color: #777;
+}
+
+.royalty-split-list {
+    display: grid;
+    gap: 10px;
+}
+
+.royalty-split-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) minmax(100px, 2fr) 55px;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #181818;
+}
+
+.royalty-split-row.current-user {
+    outline: 1px solid rgba(235,177,19,.45);
+}
+
+.split-person {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.split-avatar {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #282828;
+    color: #ebb113;
+    font-weight: 800;
+}
+
+.split-person strong,
+.split-person span {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.split-person span {
+    margin-top: 2px;
+    color: #777;
+    font-size: 11px;
+}
+
+.split-bar {
+    height: 7px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #292929;
+}
+
+.split-bar > div {
+    height: 100%;
+    border-radius: inherit;
+    background: #ebb113;
+}
+
+.split-percentage {
+    text-align: right;
+}
+
+.source-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.source {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 14px;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    background: #181818;
+    color: #666;
+}
+
+.source.active {
+    color: #ebb113;
+    border-color: rgba(235,177,19,.3);
+}
+
+.source strong {
+    display: block;
+    color: #ddd;
+    margin-bottom: 3px;
+}
+
+.source.active strong {
+    color: #f1f1f1;
+}
+
+.royalty-estimate {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.royalty-estimate > div {
+    padding: 14px;
+    border-radius: 10px;
+    background: #181818;
+}
+
+.royalty-estimate strong {
+    display: block;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+}
+
+.royalty-estimate > div:last-child strong {
+    color: #ebb113;
+}
+
+.royalty-spinner {
+    animation: royalty-spin .9s linear infinite;
+}
+
+@keyframes royalty-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1150px) {
+    .royalty-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .royalty-performance {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .royalty-detail-grid,
+    .royalty-estimate {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .royalty-management {
+        padding: 16px;
+    }
+
+    .royalty-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .royalty-header h1 {
+        font-size: 24px;
+    }
+
+    .royalty-refresh {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .royalty-tabs {
+        width: 100%;
+    }
+
+    .royalty-tabs button {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .royalty-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .royalty-song-main {
+        align-items: flex-start;
+    }
+
+    .royalty-cover {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+    }
+
+    .royalty-performance,
+    .royalty-detail-grid,
+    .royalty-estimate,
+    .source-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .royalty-split-row {
+        grid-template-columns: 1fr 55px;
+    }
+
+    .split-bar {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .royalty-summary,
+    .royalty-performance,
+    .royalty-detail-grid,
+    .royalty-estimate,
+    .source-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .royalty-song-main {
+        gap: 10px;
+    }
+
+    .royalty-title-row {
+        align-items: flex-start;
+    }
+
+    .royalty-title-row svg {
+        flex: 0 0 auto;
+    }
+
+    .royalty-song-title-row h2 {
+        font-size: 16px;
+    }
+}

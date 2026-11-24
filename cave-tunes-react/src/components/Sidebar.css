@@ -1,0 +1,530 @@
+
+/* ==========================================================
+   CAVE TUNES SIDEBAR
+   NAVBAR COMPATIBLE + MOBILE SLIDE
+========================================================== */
+
+.sidebar {
+  position: fixed;
+  top: 78px;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+
+  background: #000;
+  border-right: 1px solid #202020;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 900;
+
+  transition: transform 0.35s ease;
+}
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.sidebar-logo {
+  padding: 25px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo h1 {
+  color: #ebb113;
+  font-family: "Brittany Signature", cursive;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sidebar-logo span {
+  color: #999;
+  font-size: 13px;
+}
+
+
+/* ==========================================================
+   MENU & LINKS
+========================================================== */
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 0 14px 20px 14px;
+
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  height: 52px;
+  padding: 0 18px;
+
+  border-radius: 14px;
+
+  color: #c9c9c9;
+  text-decoration: none;
+
+  transition: 0.25s;
+
+  flex-shrink: 0;
+}
+
+.sidebar-link:hover {
+  background: #1d1d1d;
+  color: #ffffff;
+}
+
+.sidebar-link.active {
+  background: #ebb113;
+  color: #111;
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   ADMIN LINK
+========================================================== */
+
+.sidebar-link.admin-link {
+  color: #f59e0b;
+}
+
+.sidebar-link.admin-link:hover,
+.sidebar-link.admin-link.active {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+
+/* ==========================================================
+   INLINE AUTH BUTTONS
+========================================================== */
+
+.sidebar-auth-wrapper {
+  margin-top: 10px;
+  padding-top: 14px;
+
+  border-top: 1px solid #202020;
+
+  flex-shrink: 0;
+}
+
+.sidebar-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 15px;
+
+  width: 100%;
+  height: 52px;
+
+  padding: 0 18px;
+
+  border-radius: 14px;
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.sidebar-auth-btn span {
+  white-space: nowrap;
+}
+
+
+/* LOGIN */
+
+.sidebar-auth-btn.login-btn {
+  background: linear-gradient(
+    135deg,
+    #ebb113,
+    #ff8c00
+  );
+
+  color: #111;
+}
+
+.sidebar-auth-btn.login-btn:hover {
+  background: linear-gradient(
+    135deg,
+    #ffcc33,
+    #ebb113
+  );
+
+  box-shadow:
+    0 4px 15px rgba(235, 177, 19, 0.3);
+}
+
+
+/* LOGOUT */
+
+.sidebar-auth-btn.logout-btn {
+  background: rgba(239, 68, 68, 0.12);
+
+  color: #f87171;
+
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.sidebar-auth-btn.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+
+/* ==========================================================
+   MOBILE SIDEBAR OVERLAY
+   Hidden by default
+========================================================== */
+
+.sidebar-overlay {
+  display: none;
+}
+
+
+/* ======================================================
+   SIDEBAR NOTIFICATION BADGE
+====================================================== */
+
+.sidebar-notification-badge {
+  margin-left: auto;
+
+  min-width: 20px;
+  height: 20px;
+
+  padding: 0 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e53935;
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+}
+
+/* ==========================================================
+   TABLET VIEW
+   COLLAPSED ICONS
+========================================================== */
+
+@media (max-width: 1000px) {
+
+  .sidebar {
+    width: 90px;
+  }
+
+  .sidebar-logo {
+    display: flex;
+    justify-content: center;
+
+    padding: 25px 10px;
+  }
+
+  .sidebar-logo h1 {
+    font-size: 20px;
+  }
+
+  .sidebar-logo span,
+  .sidebar-link span,
+  .sidebar-auth-btn span {
+    display: none;
+  }
+
+  .sidebar-link,
+  .sidebar-auth-btn {
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE DRAWER
+========================================================== */
+
+@media (max-width: 768px) {
+
+  /* --------------------------------------------------------
+     OVERLAY
+  -------------------------------------------------------- */
+
+  .sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    /*
+      Start below navbar because the sidebar also starts
+      below the navbar.
+    */
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: calc(100vh - 70px);
+
+    background: rgba(0, 0, 0, 0.58);
+
+    z-index: 899;
+
+    cursor: pointer;
+
+    animation: sidebarOverlayFade 0.25s ease;
+  }
+
+
+  @keyframes sidebarOverlayFade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  /* --------------------------------------------------------
+     SIDEBAR
+  -------------------------------------------------------- */
+
+  .sidebar {
+    top: 70px;
+
+    left: 0;
+
+    width: 260px;
+    height: calc(100vh - 70px);
+
+    bottom: auto;
+
+    transform: translateX(-100%);
+
+    box-shadow:
+      10px 0 30px rgba(0, 0, 0, 0.5);
+
+    /*
+      Above overlay
+    */
+    z-index: 900;
+  }
+
+
+  /* --------------------------------------------------------
+     OPEN STATE
+  -------------------------------------------------------- */
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+
+  /* --------------------------------------------------------
+     LOGO
+  -------------------------------------------------------- */
+
+  .sidebar-logo {
+    padding: 25px;
+  }
+
+  .sidebar-logo h1 {
+    font-size: 26px;
+  }
+
+
+  /* --------------------------------------------------------
+     RESTORE TEXT LABELS
+  -------------------------------------------------------- */
+
+  .sidebar-logo span,
+  .sidebar-link span,
+  .sidebar-auth-btn span {
+    display: inline-block !important;
+    font-size: 0.95rem;
+  }
+
+
+  /* --------------------------------------------------------
+     LINKS
+  -------------------------------------------------------- */
+
+  .sidebar-link {
+    justify-content: flex-start;
+
+    padding: 0 18px;
+
+    color: #c9c9c9;
+  }
+
+
+  /* --------------------------------------------------------
+     AUTH BUTTON
+  -------------------------------------------------------- */
+
+  .sidebar-auth-btn {
+    justify-content: flex-start;
+
+    padding: 0 18px;
+  }
+
+
+  /* ========================================================
+     SMALL MOBILE ARROW
+  ======================================================== */
+
+  .sidebar-toggle {
+    display: flex;
+
+    position: fixed;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 28px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: linear-gradient(
+      135deg,
+      #ebb113,
+      #ff8c00
+    );
+
+    color: #111;
+
+    border: none;
+
+    border-radius: 0 12px 12px 0;
+
+    cursor: pointer;
+
+    /*
+      Above sidebar and overlay
+    */
+    z-index: 1000;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.5);
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+
+  /* Small icon */
+
+  .sidebar-toggle svg {
+    width: 16px;
+    height: 16px;
+
+    stroke-width: 3;
+  }
+
+
+  /* Hover */
+
+  .sidebar-toggle:hover {
+    width: 32px;
+
+    background: linear-gradient(
+      135deg,
+      #ffcc33,
+      #ebb113
+    );
+  }
+
+
+  /* ========================================================
+     HIDE ARROW WHEN SIDEBAR IS OPEN
+  ======================================================== */
+
+  .sidebar-toggle.sidebar-open {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width: 380px) {
+
+  .sidebar {
+    width: 240px;
+  }
+
+  .sidebar-link,
+  .sidebar-auth-btn {
+    height: 48px;
+  }
+}
+
+
+/* ==========================================================
+   SIDEBAR TOGGLE
+   HIDDEN ON DESKTOP
+========================================================== */
+
+.sidebar-toggle {
+  display: none;
+}
+
+
+/* ==========================================================
+   MOBILE TOGGLE
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  /*
+    IMPORTANT:
+    When React adds "sidebar-open" to the button,
+    the arrow completely disappears.
+  */
+
+  .sidebar-toggle.sidebar-open {
+    display: none;
+  }
+}
+

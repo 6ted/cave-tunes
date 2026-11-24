@@ -1,0 +1,38 @@
+/* ====================================================== CAVE TUNES ONBOARDING src/styles/Onboarding.css ====================================================== */
+.onboarding-page { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; background: #121212; } 
+.onboarding-card { width: 100%; max-width: 620px; padding: 38px; background: #181818; border: 1px solid #292929; border-radius: 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35); } 
+.onboarding-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+ .onboarding-brand-icon { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #ebb113; color: #121212; } 
+ .onboarding-brand strong { display: block; font-size: 16px; letter-spacing: 1px; color: #ffffff; } 
+ .onboarding-brand span { display: block; margin-top: 3px; font-size: 12px; color: #999999; } 
+ .onboarding-header { margin-bottom: 26px; } .onboarding-step { display: inline-block; margin-bottom: 10px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #ebb113; } 
+ .onboarding-header h1 { margin: 0; font-size: 30px; line-height: 1.2; color: #ffffff; } 
+ .onboarding-header p { margin: 10px 0 0; color: #a6a6a6; font-size: 14px; line-height: 1.6; }
+ .onboarding-message { padding: 12px 14px; margin-bottom: 20px; border-radius: 10px; font-size: 13px; line-height: 1.5; } 
+ .onboarding-error { background: rgba(220, 70, 70, 0.12); border: 1px solid rgba(220, 70, 70, 0.3); color: #ff8f8f; } .onboarding-form { display: flex; flex-direction: column; gap: 20px; } .onboarding-field { display: flex; flex-direction: column; gap: 8px; } .onboarding-field > label { font-size: 13px; font-weight: 600; color: #dddddd; } .onboarding-input-wrapper { position: relative; } .onboarding-input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #777777; pointer-events: none; } .onboarding-input-wrapper input { width: 100%; box-sizing: border-box; height: 48px; padding: 0 14px 0 44px; border: 1px solid #303030; border-radius: 10px; outline: none; background: #121212; color: #ffffff; font-size: 14px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .onboarding-input-wrapper input::placeholder { color: #666666; } .onboarding-input-wrapper input:focus { border-color: #ebb113; box-shadow: 0 0 0 3px rgba(235, 177, 19, 0.1); } .onboarding-input-wrapper input:disabled { opacity: 0.6; cursor: not-allowed; } .onboarding-role-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .onboarding-role { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-height: 82px; padding: 14px; border: 1px solid #303030; border-radius: 10px; background: #121212; color: #ffffff; text-align: left; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease; } .onboarding-role:hover:not(:disabled) { border-color: #666666; transform: translateY(-1px); } .onboarding-role.active { border-color: #ebb113; background: rgba(235, 177, 19, 0.08); } .onboarding-role:disabled { opacity: 0.6; cursor: not-allowed; } .onboarding-role strong { font-size: 14px; } .onboarding-role span { font-size: 11px; line-height: 1.4; color: #898989; } .onboarding-submit { width: 100%; min-height: 48px; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; border: none; border-radius: 10px; background: #ebb113; color: #121212; font-size: 14px; font-weight: 700; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; } .onboarding-submit:hover:not(:disabled) { transform: translateY(-1px); } .onboarding-submit:disabled { opacity: 0.65; cursor: not-allowed; } .onboarding-spinner { animation: onboarding-spin 0.9s linear infinite; } @keyframes onboarding-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } } @media (max-width: 600px) { .onboarding-page { padding: 20px 14px; align-items: flex-start; } .onboarding-card { margin-top: 20px; padding: 26px 20px; border-radius: 14px; } .onboarding-header h1 { font-size: 25px; } .onboarding-role-grid { grid-template-columns: 1fr; } }
+
+
+.onboarding-loading-card {
+  text-align: center;
+}
+
+.onboarding-loading-card .onboarding-brand-icon {
+  margin: 0 auto 20px;
+}
+
+.onboarding-loading-card h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.onboarding-loading-card p {
+  margin: 10px 0 20px;
+  color: #999999;
+  font-size: 14px;
+}
+
+.onboarding-loading-card .onboarding-spinner {
+  color: #ebb113;
+}
+

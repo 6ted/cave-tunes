@@ -1,0 +1,506 @@
+/* ==========================================================
+   CAVE TUNES PLAYER BAR
+========================================================== */
+
+.player-bar {
+  position: fixed;
+  left: 280px;
+  right: 24px;
+  bottom: 18px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 24px;
+  background: rgba(18, 18, 18, 0.96);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  color: white;
+  z-index: 3000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-bar-full-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mini-circle-player {
+  display: none;
+}
+
+/* ================= SONG SECTION ================= */
+
+.player-song {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 260px;
+}
+
+.player-cover {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #222;
+}
+
+.player-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-song-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.player-song-info strong {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.player-song-info span {
+  margin-top: 5px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ================= CONTROLS AREA ================= */
+
+.player-controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.control-buttons button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: 0.25s;
+}
+
+.control-buttons button:hover {
+  background: #ebb113;
+  color: #111;
+  transform: scale(1.1);
+}
+
+.control-buttons button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.main-play-button {
+  width: 52px !important;
+  height: 52px !important;
+  background: #ebb113 !important;
+  color: #111 !important;
+}
+
+.main-play-button:hover {
+  transform: scale(1.12) !important;
+}
+
+.active-control {
+  background: #ebb113 !important;
+  color: #111 !important;
+}
+
+/* ==========================================================
+   REPEAT BUTTON & MODES
+========================================================== */
+
+.repeat-button {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Off state styling */
+.repeat-button:not(.active-control) {
+  opacity: 0.6;
+}
+
+.repeat-button:not(.active-control):hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* Active Repeat Mode (All / One) */
+.repeat-button.active-control {
+  background: rgba(235, 177, 19, 0.18) !important;
+  color: #ebb113 !important;
+  border: 1px solid rgba(235, 177, 19, 0.4);
+}
+
+.repeat-button.active-control:hover {
+  background: #ebb113 !important;
+  color: #111 !important;
+}
+
+/* Badge overlay for Repeat 1 */
+.repeat-badge-one {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ebb113;
+  color: #111;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* When hover state turns background full orange, invert badge colors */
+.repeat-button.active-control:hover .repeat-badge-one {
+  background: #111;
+  color: #ebb113;
+}
+
+/* Indicator dot for Repeat All */
+.repeat-badge-all {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ebb113;
+}
+
+.repeat-button.active-control:hover .repeat-badge-all {
+  background: #111;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 65%;
+}
+
+.progress-container span {
+  font-size: 11px;
+  color: #999;
+  width: 35px;
+}
+
+.progress-range {
+  flex: 1;
+  height: 5px;
+  cursor: pointer;
+  appearance: none;
+  background: linear-gradient(
+    90deg,
+    #ebb113 var(--progress),
+    #333 var(--progress)
+  );
+  border-radius: 20px;
+}
+
+.progress-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ebb113;
+}
+
+/* ================= VOLUME ================= */
+
+.player-volume {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.volume-range {
+  width: 110px;
+  height: 4px;
+  cursor: pointer;
+  appearance: none;
+  background: linear-gradient(
+    90deg,
+    #ebb113 var(--volume),
+    #333 var(--volume)
+  );
+  border-radius: 20px;
+}
+
+.volume-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #ebb113;
+  border-radius: 50%;
+}
+
+.player-bar button,
+.player-bar input {
+  cursor: pointer;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1100px) {
+  .player-bar {
+    left: 120px;
+  }
+  .player-song {
+    width: 200px;
+  }
+  .player-volume {
+    width: 130px;
+  }
+}
+
+/* ================= MOBILE VIEWPORTS ================= */
+
+@media (max-width: 768px) {
+  /* --- 1. COLLAPSED MINI CIRCLE VIEW --- */
+  .player-bar.collapsed-mobile {
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(18, 18, 18, 0.96);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  }
+
+  .player-bar.collapsed-mobile .player-bar-full-content {
+    display: none;
+  }
+
+  .player-bar.collapsed-mobile .mini-circle-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .mini-cover-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mini-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .circular-progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    pointer-events: none;
+  }
+
+  /* --- 2. EXPANDED FULL BAR VIEW ON MOBILE --- */
+  .player-bar.expanded-mobile {
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    height: 78px;
+    padding: 0 10px;
+    border-radius: 20px;
+  }
+
+  .player-bar.expanded-mobile .mini-circle-player {
+    display: none;
+  }
+
+  .player-bar.expanded-mobile .player-bar-full-content {
+    display: flex;
+  }
+
+  .player-bar.expanded-mobile .player-song {
+    width: auto;
+  }
+
+  .player-bar.expanded-mobile .player-cover {
+    width: 50px;
+    height: 50px;
+  }
+
+  .player-bar.expanded-mobile .player-song-info {
+    display: none;
+  }
+
+  .player-bar.expanded-mobile .player-controls {
+    width: 100%;
+  }
+
+  .player-bar.expanded-mobile .control-buttons {
+    gap: 6px;
+  }
+
+  .player-bar.expanded-mobile .control-buttons button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .player-bar.expanded-mobile .main-play-button {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .player-bar.expanded-mobile .progress-container,
+  .player-bar.expanded-mobile .player-volume,
+  .player-bar.expanded-mobile .player-volume svg,
+  .player-bar.expanded-mobile .volume-range {
+    display: none;
+  }
+}
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 380px) {
+  .player-bar.expanded-mobile {
+    padding: 0 5px;
+  }
+  .player-bar.expanded-mobile .control-buttons {
+    gap: 3px;
+  }
+  .player-bar.expanded-mobile .control-buttons button {
+    width: 29px;
+    height: 29px;
+  }
+  .player-bar.expanded-mobile .main-play-button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .player-bar.expanded-mobile .player-cover {
+    width: 42px;
+    height: 42px;
+  }
+}
+/* =========================================
+   PLAYER BAR ADVERTISEMENT INDICATOR
+========================================= */
+
+.player-ad-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.player-ad-badge {
+  display: inline-block;
+  color: #ebb113;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.player-ad-info strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-ad-info > span:last-child {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+}
+
+.player-ad-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  color: #ebb113;
+  font-size: 11px;
+  font-weight: 600;
+  min-height: 24px;
+}
+
+.player-ad-equalizer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+
+.player-ad-equalizer i {
+  width: 3px;
+  height: 7px;
+  background: #ebb113;
+  border-radius: 5px;
+  animation: caveBarEqualizer 0.7s infinite alternate;
+}
+
+.player-ad-equalizer i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.player-ad-equalizer i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes caveBarEqualizer {
+  from {
+    height: 4px;
+  }
+
+  to {
+    height: 17px;
+  }
+}

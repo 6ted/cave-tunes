@@ -1,0 +1,1685 @@
+/* ======================================================
+   CAVE TUNES - COMMUNITY FEED
+====================================================== */
+
+.ct-feed {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px 20px 100px;
+    color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+.ct-feed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.ct-feed-header h1 {
+    font-size: 27px;
+    margin: 0 0 6px;
+}
+
+.ct-feed-header p {
+    color: #999;
+    margin: 0;
+    font-size: 14px;
+}
+
+.ct-feed-refresh {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    background: #1d212b;
+    color: #ebb113;
+    cursor: pointer;
+}
+
+
+/* CREATE POST */
+
+.ct-create-post,
+.ct-feed-post {
+    background: #171b22;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.ct-create-post {
+    padding: 20px;
+}
+
+.ct-create-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.ct-create-top textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.ct-create-top textarea::placeholder {
+    color: #858585;
+}
+
+
+/* AVATARS */
+
+.ct-avatar {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #292e38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #ebb113;
+}
+
+.ct-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* SELECTED IMAGES */
+
+.ct-selected-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 9px;
+    margin: 15px 0;
+}
+
+.ct-selected-image {
+    position: relative;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ct-selected-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ct-selected-image button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 27px;
+    height: 27px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.8);
+    color: white;
+    cursor: pointer;
+}
+
+
+/* LINK INPUT */
+
+.ct-feed-link {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 11px;
+    border-radius: 9px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #202630;
+    color: white;
+    outline: none;
+}
+
+.ct-feed-link::placeholder {
+    color: #888;
+}
+
+
+/* CREATE ACTIONS */
+
+.ct-create-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.ct-create-tools button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: #ebb113;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.ct-publish-button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 9px;
+    padding: 11px 20px;
+    background: #ebb113;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ct-publish-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* FEED POSTS */
+
+.ct-feed-post {
+    padding: 20px;
+}
+
+.ct-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ct-post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ct-post-author strong {
+    font-size: 14px;
+}
+
+.ct-post-author small {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.ct-verified {
+  width:22px;
+  height:22px;
+
+ background: #2689ff;
+    color: white;
+    font-size: 10px;
+
+  border-radius:50%;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  margin-left:6px;
+
+  vertical-align:middle;
+
+}
+
+
+/* POST MENU */
+
+.ct-post-menu {
+    position: relative;
+}
+
+.ct-post-menu > button {
+    border: none;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.ct-post-menu-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    z-index: 5;
+    min-width: 130px;
+    padding: 6px;
+    border-radius: 9px;
+    background: #292e38;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.ct-post-menu-dropdown button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #ff7777;
+    text-align: left;
+    cursor: pointer;
+}
+
+
+/* CONTENT */
+
+.ct-post-content {
+    margin: 18px 0;
+    line-height: 1.7;
+    font-size: 14px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ct-post-link {
+    display: block;
+    margin: 12px 0;
+    color: #ebb113;
+    overflow-wrap: anywhere;
+}
+
+
+/* POST IMAGES */
+
+.ct-post-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.ct-post-images img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: #222;
+}
+
+.ct-post-images.ct-single-image {
+    grid-template-columns: 1fr;
+}
+
+.ct-post-images.ct-single-image img {
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+
+/* POST STATS */
+
+.ct-post-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 0;
+    color: #999;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+
+/* POST ACTIONS */
+
+.ct-post-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding-top: 10px;
+}
+
+.ct-post-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.ct-post-actions button:hover {
+    background: rgba(255,255,255,.05);
+}
+
+.ct-post-actions .ct-action-liked {
+    color: #ff5364;
+}
+
+.ct-post-actions .ct-action-reshared {
+    color: #ebb113;
+}
+
+
+/* COMMENTS */
+
+.ct-comments {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.ct-comment {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.ct-comment-avatar {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #292e38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #ebb113;
+}
+
+.ct-comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ct-comment-body {
+    background: #222832;
+    padding: 10px 13px;
+    border-radius: 10px;
+}
+
+.ct-comment-body strong {
+    font-size: 12px;
+}
+
+.ct-comment-body p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.ct-no-comments {
+    color: #888;
+    font-size: 13px;
+}
+
+.ct-comment-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.ct-comment-input input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    padding: 11px 15px;
+    background: #222832;
+    color: white;
+    outline: none;
+}
+
+.ct-comment-input button {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: #ebb113;
+    color: #111;
+    cursor: pointer;
+}
+
+
+/* EMPTY / LOADING */
+
+.ct-feed-empty,
+.ct-feed-loading {
+    padding: 50px 20px;
+    text-align: center;
+    color: #999;
+    background: #171b22;
+    border-radius: 15px;
+}
+
+.ct-feed-empty h3 {
+    color: white;
+}
+
+.ct-feed-empty svg {
+    color: #ebb113;
+}
+
+.ct-comments-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #999;
+    font-size: 13px;
+}
+
+
+/* ERROR */
+
+.ct-feed-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    margin-bottom: 15px;
+    border-radius: 9px;
+    background: rgba(255,70,70,.12);
+    border: 1px solid rgba(255,70,70,.3);
+    color: #ff8585;
+    font-size: 13px;
+}
+
+.ct-feed-error button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+
+/* LOADING ANIMATION */
+
+.ct-spin {
+    animation: ctSpin 1s linear infinite;
+}
+
+@keyframes ctSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .ct-feed {
+        padding: 18px 12px 100px;
+    }
+
+    .ct-feed-header h1 {
+        font-size: 22px;
+    }
+
+    .ct-create-post,
+    .ct-feed-post {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .ct-post-images img {
+        height: 160px;
+    }
+
+    .ct-post-actions button {
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .ct-post-stats {
+        font-size: 11px;
+    }
+
+}
+
+/* ======================================================
+   REPOST LABEL
+====================================================== */
+
+.ct-repost-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 16px 12px;
+    color: #aeb4c0;
+    font-size: 13px;
+}
+
+.ct-repost-label svg {
+    color: #ebb113;
+}
+
+.ct-repost-label strong {
+    color: #ebb113;
+}
+
+.ct-original-author {
+    margin: 0 16px 12px;
+    padding: 9px 12px;
+    border-left: 2px solid #ebb113;
+    background: rgba(235, 177, 19, 0.06);
+    color: #aeb4c0;
+    font-size: 13px;
+}
+
+.ct-original-author strong {
+    color: #fff;
+}
+
+
+/* ======================================================
+   COMMENT THREADS
+====================================================== */
+
+.ct-comment-thread {
+    margin-top: 14px;
+}
+
+.ct-comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.ct-comment-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.ct-comment-body > strong {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.ct-comment-body > p {
+    margin: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+.ct-comment-replies {
+    margin-top: 12px;
+    padding-left: 10px;
+    border-left: 2px solid rgba(235, 177, 19, 0.2);
+}
+
+
+/* ======================================================
+   COMMENT ACTIONS
+====================================================== */
+
+.ct-comment-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 7px;
+}
+
+.ct-comment-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.ct-comment-actions button:hover {
+    color: #ebb113;
+}
+
+.ct-comment-actions button.ct-action-liked {
+    color: #ff5574;
+}
+
+.ct-comment-actions small {
+    color: #777e8a;
+    font-size: 11px;
+}
+
+
+/* ======================================================
+   REPLY INPUT
+====================================================== */
+
+.ct-reply-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ct-reply-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 9px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.ct-reply-input input:focus {
+    border-color: #ebb113;
+}
+
+.ct-reply-input button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: #ebb113;
+    color: #111;
+    cursor: pointer;
+}
+
+.ct-reply-input button:hover {
+    background: #ffd25a;
+}
+
+
+/* ======================================================
+   MOBILE THREAD SPACING
+====================================================== */
+
+@media (max-width: 600px) {
+    .ct-comment-replies {
+        padding-left: 7px;
+    }
+
+    .ct-comment-thread {
+        margin-top: 12px;
+    }
+
+    .ct-repost-label {
+        font-size: 12px;
+    }
+}
+/* ======================================================
+   FULL SCREEN GLASS LOADING OVERLAY
+====================================================== */
+
+.ct-screen-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(5, 7, 12, 0.72);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    animation: ctOverlayFadeIn 0.25s ease;
+}
+
+/* GLASS CONTAINER */
+
+.ct-loading-glass {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 38px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.075);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    animation: ctGlassAppear 0.35s ease;
+}
+
+/* LOADING ICON */
+
+.ct-loading-icon {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ebb113;
+
+    background: rgba(235, 177, 19, 0.10);
+
+    border: 1px solid rgba(235, 177, 19, 0.25);
+
+    border-radius: 50%;
+}
+
+.ct-loading-icon svg {
+    animation: ctLoadingSpin 1s linear infinite;
+}
+
+/* HEADING */
+
+.ct-loading-glass h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+/* DESCRIPTION */
+
+.ct-loading-glass p {
+    margin: 0 auto 26px;
+
+    max-width: 290px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* PROGRESS TRACK */
+
+.ct-progress-track {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-radius: 20px;
+}
+
+/* ANIMATED PROGRESS BAR */
+
+.ct-progress-bar {
+    width: 40%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #b98200,
+        #ebb113,
+        #ffe18a
+    );
+
+    box-shadow: 0 0 15px rgba(235, 177, 19, 0.45);
+
+    animation: ctProgressMove 1.5s ease-in-out infinite;
+}
+
+/* STATUS */
+
+.ct-loading-status {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #ebb113;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+/* SPINNER */
+
+@keyframes ctLoadingSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* PROGRESS ANIMATION */
+
+@keyframes ctProgressMove {
+    0% {
+        transform: translateX(-110%);
+    }
+
+    100% {
+        transform: translateX(280%);
+    }
+}
+
+/* OVERLAY APPEAR */
+
+@keyframes ctOverlayFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* GLASS APPEAR */
+
+@keyframes ctGlassAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .ct-loading-glass {
+        max-width: 340px;
+        padding: 32px 22px;
+    }
+
+    .ct-loading-glass h2 {
+        font-size: 19px;
+    }
+}
+
+/* ======================================================
+   CLICKABLE POST IMAGES
+====================================================== */
+
+.ct-clickable-image {
+    cursor: zoom-in;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.ct-clickable-image:hover {
+    opacity: 0.9;
+}
+
+
+/* ======================================================
+   FULL SCREEN IMAGE VIEWER
+====================================================== */
+
+.ct-image-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 65px 80px;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: ctViewerFadeIn 0.2s ease;
+}
+
+
+/* IMAGE */
+
+.ct-viewer-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+
+    animation: ctViewerImageAppear 0.25s ease;
+}
+
+
+/* CLOSE BUTTON */
+
+.ct-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.ct-viewer-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: rotate(90deg);
+}
+
+
+/* IMAGE COUNTER */
+
+.ct-viewer-counter {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 8px 16px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 30px;
+}
+
+
+/* PREVIOUS AND NEXT BUTTONS */
+
+.ct-viewer-prev,
+.ct-viewer-next {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 23px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.ct-viewer-prev {
+    left: 20px;
+}
+
+.ct-viewer-next {
+    right: 20px;
+}
+
+.ct-viewer-prev:hover,
+.ct-viewer-next:hover {
+    background: #ebb113;
+    color: #111;
+
+    border-color: #ebb113;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes ctViewerFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ctViewerImageAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ======================================================
+   MOBILE IMAGE VIEWER
+====================================================== */
+
+@media (max-width: 600px) {
+    .ct-image-viewer {
+        padding: 65px 12px;
+    }
+
+    .ct-viewer-image {
+        max-width: 100%;
+        max-height: 85vh;
+    }
+
+    .ct-viewer-close {
+        top: 12px;
+        right: 12px;
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .ct-viewer-prev,
+    .ct-viewer-next {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .ct-viewer-prev {
+        left: 8px;
+    }
+
+    .ct-viewer-next {
+        right: 8px;
+    }
+}
+/* =========================================
+   CLICKABLE USER PROFILES
+========================================= */
+
+.ct-profile-clickable {
+    cursor: pointer;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.ct-profile-clickable:hover {
+    opacity: 0.8;
+    color: var(--gold, #ebb113);
+}
+
+.ct-comment-avatar.ct-profile-clickable,
+.ct-post-author .ct-avatar.ct-profile-clickable {
+    cursor: pointer;
+}
+
+
+/* ======================================================
+   CAVE TUNES - FEED THEME SYSTEM
+   Dark Mode + Light Mode
+====================================================== */
+
+/* ======================================================
+   THEME TOGGLE
+====================================================== */
+
+.ct-feed-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ct-theme-toggle {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 13px;
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+
+    background: #1d212b;
+    color: #ebb113;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.ct-theme-toggle:hover {
+    background: #292e38;
+    border-color: #ebb113;
+}
+
+.ct-theme-toggle svg {
+    flex-shrink: 0;
+}
+
+/* ======================================================
+   SMOOTH THEME TRANSITIONS
+====================================================== */
+
+.ct-feed,
+.ct-feed .ct-create-post,
+.ct-feed .ct-feed-post,
+.ct-feed .ct-feed-empty,
+.ct-feed .ct-feed-loading,
+.ct-feed .ct-comment-body,
+.ct-feed .ct-feed-link,
+.ct-feed .ct-comment-input input,
+.ct-feed .ct-reply-input input,
+.ct-feed .ct-post-menu-dropdown {
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+/* ======================================================
+   LIGHT MODE - MAIN BACKGROUND
+====================================================== */
+
+.ct-feed.ct-theme-light {
+    color: #20232b;
+    background: #f4f5f8;
+
+    color-scheme: light;
+}
+
+/* HEADER */
+
+.ct-theme-light .ct-feed-header h1 {
+    color: #20232b;
+}
+
+.ct-theme-light .ct-feed-header p {
+    color: #737986;
+}
+
+/* THEME BUTTON */
+
+.ct-theme-light .ct-theme-toggle {
+    background: #ffffff;
+    color: #333945;
+    border-color: #e0e3e9;
+}
+
+.ct-theme-light .ct-theme-toggle:hover {
+    background: #fff8e6;
+    border-color: #ebb113;
+    color: #a87900;
+}
+
+/* REFRESH BUTTON */
+
+.ct-theme-light .ct-feed-refresh {
+    background: #ffffff;
+    color: #bd8b00;
+    border-color: #e0e3e9;
+}
+
+.ct-theme-light .ct-feed-refresh:hover {
+    background: #fff8e6;
+    border-color: #ebb113;
+}
+
+/* ======================================================
+   LIGHT MODE - CREATE POST AND FEED CARDS
+====================================================== */
+
+.ct-theme-light .ct-create-post,
+.ct-theme-light .ct-feed-post {
+    background: #ffffff;
+    border: 1px solid #e5e7ed;
+
+    box-shadow: 0 3px 12px rgba(20, 25, 40, .035);
+}
+
+.ct-theme-light .ct-create-post:hover,
+.ct-theme-light .ct-feed-post:hover {
+    border-color: #d9dce4;
+}
+
+/* CREATE POST TEXTAREA */
+
+.ct-theme-light .ct-create-top textarea {
+    color: #20232b;
+}
+
+.ct-theme-light .ct-create-top textarea::placeholder {
+    color: #969ba6;
+}
+
+/* ======================================================
+   LIGHT MODE - AVATARS
+====================================================== */
+
+.ct-theme-light .ct-avatar,
+.ct-theme-light .ct-comment-avatar {
+    background: #f0f1f5;
+    color: #b98b0b;
+}
+
+/* ======================================================
+   LIGHT MODE - IMAGE UPLOAD
+====================================================== */
+
+.ct-theme-light .ct-selected-image {
+    background: #f0f1f5;
+}
+
+/* ======================================================
+   LIGHT MODE - INPUTS
+====================================================== */
+
+.ct-theme-light .ct-feed-link {
+    background: #f8f9fb;
+    color: #20232b;
+    border-color: #e0e3e9;
+}
+
+.ct-theme-light .ct-feed-link::placeholder {
+    color: #9298a4;
+}
+
+.ct-theme-light .ct-feed-link:focus {
+    border-color: #ebb113;
+    background: #ffffff;
+}
+
+/* COMMENT INPUT */
+
+.ct-theme-light .ct-comment-input input {
+    background: #f5f6f8;
+    color: #20232b;
+    border-color: #e0e3e9;
+}
+
+.ct-theme-light .ct-comment-input input::placeholder {
+    color: #969ba6;
+}
+
+.ct-theme-light .ct-comment-input input:focus {
+    background: #ffffff;
+    border-color: #ebb113;
+}
+
+/* REPLY INPUT */
+
+.ct-theme-light .ct-reply-input input {
+    background: #f5f6f8;
+    color: #20232b;
+    border-color: #e0e3e9;
+}
+
+.ct-theme-light .ct-reply-input input::placeholder {
+    color: #9298a4;
+}
+
+/* ======================================================
+   LIGHT MODE - CREATE ACTIONS
+====================================================== */
+
+.ct-theme-light .ct-create-actions {
+    border-top-color: #e9ebef;
+}
+
+.ct-theme-light .ct-create-tools button {
+    color: #ae8000;
+}
+
+.ct-theme-light .ct-create-tools button:hover {
+    color: #d09b00;
+}
+
+/* PUBLISH BUTTON */
+
+.ct-theme-light .ct-publish-button {
+    background: #ebb113;
+    color: #171717;
+}
+
+.ct-theme-light .ct-publish-button:hover {
+    background: #f7c644;
+}
+
+/* ======================================================
+   LIGHT MODE - POST HEADER
+====================================================== */
+
+.ct-theme-light .ct-post-author strong {
+    color: #252936;
+}
+
+.ct-theme-light .ct-post-author small {
+    color: #9297a2;
+}
+
+.ct-theme-light .ct-post-menu > button {
+    color: #777e8a;
+}
+
+.ct-theme-light .ct-post-menu > button:hover {
+    color: #b58a13;
+}
+
+/* POST MENU DROPDOWN */
+
+.ct-theme-light .ct-post-menu-dropdown {
+    background: #ffffff;
+    border-color: #e2e5eb;
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+
+.ct-theme-light .ct-post-menu-dropdown button {
+    color: #dc4545;
+}
+
+.ct-theme-light .ct-post-menu-dropdown button:hover {
+    background: #fff0f0;
+}
+
+/* ======================================================
+   LIGHT MODE - POST CONTENT
+====================================================== */
+
+.ct-theme-light .ct-post-content {
+    color: #343945;
+}
+
+.ct-theme-light .ct-post-link {
+    color: #a77b00;
+}
+
+.ct-theme-light .ct-post-link:hover {
+    color: #d09b00;
+}
+
+/* ======================================================
+   LIGHT MODE - POST IMAGES
+====================================================== */
+
+.ct-theme-light .ct-post-images img {
+    background: #f0f1f4;
+}
+
+/* ======================================================
+   LIGHT MODE - POST STATS
+====================================================== */
+
+.ct-theme-light .ct-post-stats {
+    color: #858b97;
+    border-bottom-color: #e9ebef;
+}
+
+/* ======================================================
+   LIGHT MODE - POST ACTIONS
+====================================================== */
+
+.ct-theme-light .ct-post-actions button {
+    color: #727987;
+}
+
+.ct-theme-light .ct-post-actions button:hover {
+    background: #f3f4f7;
+    color: #353b48;
+}
+
+.ct-theme-light .ct-post-actions .ct-action-liked {
+    color: #ed4059;
+}
+
+.ct-theme-light .ct-post-actions .ct-action-reshared {
+    color: #bd8b00;
+}
+
+/* ======================================================
+   LIGHT MODE - COMMENTS
+====================================================== */
+
+.ct-theme-light .ct-comments {
+    border-top-color: #e9ebef;
+}
+
+.ct-theme-light .ct-comment-body {
+    background: #f2f3f6;
+}
+
+.ct-theme-light .ct-comment-body strong {
+    color: #343945;
+}
+
+.ct-theme-light .ct-comment-body p {
+    color: #414653;
+}
+
+.ct-theme-light .ct-no-comments {
+    color: #858b97;
+}
+
+.ct-theme-light .ct-comment-actions button {
+    color: #858b97;
+}
+
+.ct-theme-light .ct-comment-actions button:hover {
+    color: #b58a13;
+}
+
+.ct-theme-light .ct-comment-actions button.ct-action-liked {
+    color: #ed4059;
+}
+
+.ct-theme-light .ct-comment-actions small {
+    color: #969ba6;
+}
+
+.ct-theme-light .ct-comment-replies {
+    border-left-color: rgba(190, 145, 15, .3);
+}
+
+/* ======================================================
+   LIGHT MODE - REPOST
+====================================================== */
+
+.ct-theme-light .ct-repost-label {
+    color: #777e8a;
+}
+
+.ct-theme-light .ct-repost-label strong {
+    color: #a77b00;
+}
+
+.ct-theme-light .ct-original-author {
+    background: #fff9e9;
+    color: #737986;
+    border-left-color: #ebb113;
+}
+
+.ct-theme-light .ct-original-author strong {
+    color: #333945;
+}
+
+/* ======================================================
+   LIGHT MODE - EMPTY AND LOADING STATES
+====================================================== */
+
+.ct-theme-light .ct-feed-empty,
+.ct-theme-light .ct-feed-loading {
+    background: #ffffff;
+    color: #858b97;
+    border: 1px solid #e5e7ed;
+}
+
+.ct-theme-light .ct-feed-empty h3 {
+    color: #252936;
+}
+
+.ct-theme-light .ct-feed-empty svg {
+    color: #d5a20e;
+}
+
+.ct-theme-light .ct-comments-loading {
+    color: #777e8a;
+}
+
+/* ======================================================
+   LIGHT MODE - ERROR MESSAGE
+====================================================== */
+
+.ct-theme-light .ct-feed-error {
+    background: #fff0f0;
+    border-color: #ffcaca;
+    color: #cf3d3d;
+}
+
+/* ======================================================
+   LIGHT MODE - LOADING OVERLAY
+====================================================== */
+
+.ct-theme-light .ct-loading-glass {
+    background: rgba(255,255,255,.94);
+    border-color: rgba(0,0,0,.08);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.15),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.ct-theme-light .ct-loading-glass h2 {
+    color: #252936;
+}
+
+.ct-theme-light .ct-loading-glass p {
+    color: #737986;
+}
+
+.ct-theme-light .ct-progress-track {
+    background: #e7e9ef;
+}
+
+.ct-theme-light .ct-loading-status {
+    color: #a77b00;
+}
+
+/* ======================================================
+   LIGHT MODE - PROFILE HOVER
+====================================================== */
+
+.ct-theme-light .ct-profile-clickable:hover {
+    color: #a77b00;
+}
+
+/* ======================================================
+   ACCESSIBILITY - FOCUS
+====================================================== */
+
+.ct-theme-light .ct-theme-toggle:focus-visible,
+.ct-theme-light .ct-feed-refresh:focus-visible,
+.ct-theme-light button:focus-visible,
+.ct-theme-light input:focus-visible,
+.ct-theme-light textarea:focus-visible {
+    outline: 2px solid #d6a20b;
+    outline-offset: 3px;
+}
+
+/* ======================================================
+   MOBILE THEME BUTTON
+====================================================== */
+
+@media (max-width: 600px) {
+
+    .ct-feed-header-actions {
+        gap: 7px;
+    }
+
+    .ct-theme-toggle {
+        width: 42px;
+        min-width: 42px;
+        padding: 0;
+        border-radius: 12px;
+    }
+
+    .ct-theme-toggle span {
+        display: none;
+    }
+
+}

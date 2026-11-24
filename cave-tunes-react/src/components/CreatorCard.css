@@ -1,0 +1,628 @@
+
+/* ==========================================================
+   CAVE TUNES — CREATOR CARDS
+   Frosted Glass | Compact | Responsive
+========================================================== */
+
+:root {
+    --creator-gold: #ebb113;
+    --creator-gold-hover: #ffd25a;
+    --creator-text: #ffffff;
+    --creator-muted: rgba(255, 255, 255, 0.65);
+    --creator-glass: rgba(255, 255, 255, 0.05);
+    --creator-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.creator-cards-grid,
+.creators-grid,
+.creator-list,
+.creator-directory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+
+    align-items: stretch;
+
+    gap: 20px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: visible;
+}
+
+/* ==========================================================
+   CREATOR CARD
+========================================================== */
+
+.creator-card {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: var(--creator-glass);
+
+    border: 1px solid var(--creator-border);
+    border-radius: 20px;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.creator-card:hover {
+
+    background: rgba(255, 255, 255, 0.075);
+
+    border-color: rgba(235, 177, 19, 0.35);
+
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(-4px);
+}
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.creator-card-image {
+
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    flex-shrink: 0;
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.creator-card-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.creator-card:hover .creator-card-image img {
+    transform: scale(1.04);
+}
+
+.creator-card-image::after {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.35),
+        transparent 55%
+    );
+
+    pointer-events: none;
+}
+
+/* ==========================================================
+   IMAGE FALLBACK
+========================================================== */
+
+.creator-card-image-fallback {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: #232833;
+    color: var(--creator-gold);
+}
+
+/* ==========================================================
+   INFORMATION
+========================================================== */
+
+.creator-card-info {
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-width: 0;
+
+    gap: 7px;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   NAME
+========================================================== */
+
+.creator-card-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+
+    color: var(--creator-text);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    overflow: visible;
+    white-space: nowrap;
+}
+.verified-badge {
+    display: inline-flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 19px !important;
+    height: 19px !important;
+
+    min-width: 19px !important;
+    min-height: 19px !important;
+
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+
+    border-radius: 50% !important;
+
+    overflow: hidden;
+
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* ==========================================================
+   COUNTRY
+========================================================== */
+
+.creator-card-country {
+
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 6px;
+
+    color: var(--creator-muted);
+
+    font-size: 12px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.creator-card-country svg {
+    flex-shrink: 0;
+    color: var(--creator-gold);
+}
+
+.creator-card-country span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   BOTTOM INFORMATION
+========================================================== */
+
+.creator-card-bottom {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+/* ==========================================================
+   ROLE
+========================================================== */
+
+.creator-card-role {
+
+    display: inline-flex;
+    align-items: center;
+
+    max-width: 100%;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    background: rgba(235, 177, 19, 0.12);
+
+    border: 1px solid rgba(235, 177, 19, 0.18);
+
+    color: var(--creator-gold);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   FOLLOWERS
+========================================================== */
+
+.creator-card-followers {
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 4px;
+
+    color: var(--creator-muted);
+
+    font-size: 11px;
+}
+
+.creator-card-followers svg {
+    color: var(--creator-gold);
+    flex-shrink: 0;
+}
+
+/* ==========================================================
+   OWN PROFILE
+========================================================== */
+
+.creator-card-own-profile {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.creator-card-own-profile:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--creator-border);
+}
+
+.creator-card-own-profile img {
+    filter: saturate(0.75);
+}
+
+.creator-card-own-badge {
+
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+
+    padding: 7px;
+
+    border-radius: 9px;
+
+    background: rgba(18, 18, 18, 0.92);
+
+    border: 1px solid rgba(235, 177, 19, 0.18);
+
+    color: var(--creator-gold);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.creator-card-own-message {
+
+    margin-top: 6px;
+
+    padding: 7px;
+
+    border-radius: 9px;
+
+    background: rgba(235, 177, 19, 0.08);
+
+    border: 1px solid rgba(235, 177, 19, 0.15);
+
+    color: var(--creator-gold);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+.creator-card:focus-visible {
+
+    outline: 2px solid var(--creator-gold);
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .creator-cards-grid,
+    .creators-grid,
+    .creator-list,
+    .creator-directory-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .creator-card {
+        border-radius: 14px;
+    }
+
+    .creator-card-info {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .creator-card-name {
+        font-size: 13px;
+    }
+
+    .creator-card-country {
+        font-size: 11px;
+    }
+
+    .creator-card-role {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .creator-cards-grid,
+    .creators-grid,
+    .creator-list,
+    .creator-directory-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+    }
+
+    .creator-card {
+        border-radius: 12px;
+    }
+
+    .creator-card-info {
+        padding: 8px;
+        gap: 4px;
+    }
+
+    .creator-card-name {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .creator-card-country {
+        font-size: 10px;
+        gap: 4px;
+    }
+
+    .creator-card-country svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .creator-card-role {
+        padding: 3px 7px;
+        font-size: 8px;
+    }
+
+    .creator-card-followers {
+        font-size: 9px;
+    }
+
+    .creator-card-followers svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .verified-badge {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+
+    .creator-card-own-badge,
+    .creator-card-own-message {
+        font-size: 9px;
+        padding: 5px;
+    }
+
+}
+
+/* ==========================================================
+   VERY SMALL PHONES
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .creator-cards-grid,
+    .creators-grid,
+    .creator-list,
+    .creator-directory-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 7px;
+    }
+
+    .creator-card {
+        border-radius: 10px;
+    }
+
+    .creator-card-image {
+        aspect-ratio: 1 / 1;
+    }
+
+    .creator-card-info {
+        padding: 7px;
+        gap: 3px;
+    }
+
+    .creator-card-name {
+        font-size: 11px;
+        gap: 3px;
+    }
+
+    .creator-card-country {
+        font-size: 9px;
+    }
+
+    .creator-card-role {
+        padding: 3px 5px;
+        font-size: 7px;
+    }
+
+    .verified-badge {
+        width: 12px;
+        height: 12px;
+        font-size: 7px;
+    }
+
+    .creator-card-own-badge,
+    .creator-card-own-message {
+        font-size: 8px;
+        padding: 4px;
+    }
+
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .creator-card,
+    .creator-card img,
+    .creator-card-image::after {
+        transition: none !important;
+    }
+
+}
+
+
+/* FORCE COMPACT TWO-COLUMN CREATOR CARDS ON MOBILE */
+
+@media screen and (max-width: 768px) {
+  .creator-directory-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .creator-directory-grid .creator-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 9px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .creator-directory-grid .creator-card-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .creator-directory-grid .creator-card-name {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  .creator-directory-grid .creator-card-country,
+  .creator-directory-grid .creator-card-role,
+  .creator-directory-grid .creator-card-followers {
+    font-size: 11px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .creator-directory-grid {
+    gap: 7px !important;
+  }
+
+  .creator-directory-grid .creator-card {
+    padding: 7px !important;
+  }
+
+  .creator-directory-grid .creator-card-name {
+    font-size: 12px !important;
+  }
+}

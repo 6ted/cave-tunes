@@ -1,0 +1,520 @@
+/* ======================================================
+   CAVE TUNES
+   SETTINGS PAGE
+====================================================== */
+
+.settings-page {
+    min-height: 100vh;
+    padding: 32px;
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.settings-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 42px;
+}
+
+
+.settings-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.05);
+
+    color: #ffffff;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.settings-back-button:hover {
+    background: rgba(235,177,19,.12);
+    border-color: rgba(235,177,19,.35);
+}
+
+
+.settings-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.settings-title-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(235,177,19,.12);
+
+    color: #ebb113;
+}
+
+
+.settings-title h1 {
+    margin: 0;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+.settings-title p {
+    margin: 6px 0 0;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   SECTION
+====================================================== */
+
+.settings-section {
+    max-width: 1100px;
+
+    margin: 0 auto 38px;
+}
+
+
+.settings-section-header {
+    margin-bottom: 18px;
+}
+
+
+.settings-section-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+
+.settings-section-header p {
+    margin: 5px 0 0;
+
+    color: rgba(255,255,255,.48);
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   GRID
+====================================================== */
+
+.settings-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.settings-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 17px;
+
+    width: 100%;
+
+    min-height: 150px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+
+    color: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.settings-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(235,177,19,.38);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(235,177,19,.10),
+            rgba(255,255,255,.035)
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.28);
+}
+
+
+/* ======================================================
+   ICON
+====================================================== */
+
+.settings-card-icon {
+    flex: 0 0 auto;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: #ebb113;
+
+    background:
+        rgba(235,177,19,.10);
+
+    border:
+        1px solid rgba(235,177,19,.16);
+}
+
+
+/* ======================================================
+   TEXT
+====================================================== */
+
+.settings-card h3 {
+    margin: 3px 0 7px;
+
+    font-size: 17px;
+}
+
+
+.settings-card p {
+    margin: 0;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+/* ======================================================
+   VERIFICATION NOTICE
+   ====================================================== */
+
+.settings-verification-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    margin-bottom: 28px;
+    padding: 18px 20px;
+
+    border: 1px solid rgba(235, 177, 19, 0.28);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(235, 177, 19, 0.10),
+            rgba(18, 18, 18, 0.80)
+        );
+}
+
+.settings-verification-notice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: rgba(235, 177, 19, 0.12);
+    color: #ebb113;
+}
+
+.settings-verification-notice strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.settings-verification-notice p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ======================================================
+   CARD HEADING
+   ====================================================== */
+
+.settings-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-card-heading h3 {
+    margin: 0;
+}
+
+
+/* ======================================================
+   LOCKED CARD
+   ====================================================== */
+
+.settings-card-locked {
+    opacity: 0.52;
+    cursor: not-allowed !important;
+
+    filter: grayscale(0.35);
+
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.settings-card-locked:hover {
+    transform: none !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    box-shadow: none !important;
+}
+
+.settings-card-locked .settings-card-icon {
+    color: rgba(255, 255, 255, 0.38);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* ======================================================
+   LOCK LABEL
+   ====================================================== */
+
+.settings-lock-label {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.settings-card-locked small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: rgba(235, 177, 19, 0.75);
+    font-size: 11px;
+}
+
+
+/* ======================================================
+   LOADING
+   ====================================================== */
+
+.settings-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+}
+
+/* ======================================================
+   NOTIFICATION CARD
+====================================================== */
+
+.settings-notifications-card {
+    position: relative;
+}
+
+
+/* ======================================================
+   NOTIFICATION ICON
+====================================================== */
+
+.settings-notification-icon {
+    position: relative;
+}
+
+
+/* ======================================================
+   UNREAD COUNT BADGE
+====================================================== */
+
+.settings-notification-badge {
+    position: absolute;
+
+    top: -8px;
+    right: -10px;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background: #e53935;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    border: 2px solid #121212;
+
+    box-sizing: border-box;
+}
+
+
+/* ======================================================
+   NEW LABEL
+====================================================== */
+
+.settings-unread-label {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 8px;
+
+    padding: 3px 7px;
+
+    border-radius: 999px;
+
+    background: rgba(229, 57, 53, 0.15);
+
+    color: #ff6b6b;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 700px) {
+
+    .settings-page {
+        padding: 20px 15px;
+    }
+
+ .settings-back-button {
+    display: none;
+  }
+    .settings-header {
+        gap: 15px;
+        flex-direction: column;
+    }
+
+
+    .settings-title h1 {
+        font-size: 25px;
+    }
+
+
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .settings-card {
+        min-height: auto;
+    }
+
+}
+
+.settings-free-verification-card {
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.settings-free-label {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}

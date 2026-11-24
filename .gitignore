@@ -1,0 +1,41 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Backups
+Backup Files/
+**/Backup Files/
+
+# Uploaded user content
+cave-tunes-server/uploads/
+cave-tunes-server/test-files/
+
+# Database files and backups
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
