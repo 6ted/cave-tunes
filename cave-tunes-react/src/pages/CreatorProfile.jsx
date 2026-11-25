@@ -413,12 +413,13 @@ function CreatorProfile() {
      PLAYER
   ========================================== */
 
-  const {
-    currentSong,
-    isPlaying,
-    playSong,
-    pauseSong,
-  } = usePlayer();
+const {
+  currentSong,
+  isPlaying,
+  playSong,
+  pauseSong,
+  setFullPlayerOpen,
+} = usePlayer();
 
 
   /* ==========================================
@@ -836,35 +837,42 @@ console.log("CREATOR BIO:", creatorData?.bio);
   );
 
 
-  /* ==========================================
-     PLAY SONG
-  ========================================== */
 
-  function handlePlaySong(song) {
 
-    if (!song) return;
+ /* ==========================================
+   PLAY SONG + OPEN FULL PLAYER
+========================================== */
 
-    const currentId =
-      currentSong?.id != null
-        ? String(currentSong.id)
-        : null;
+function handlePlaySong(song) {
 
-    const songId =
-      String(song.id);
+  if (!song) return;
 
-    if (
-      currentId === songId &&
-      isPlaying
-    ) {
+  // Always open the full player.
+  setFullPlayerOpen(true);
 
-      pauseSong();
+  const currentId =
+    currentSong?.id != null
+      ? String(currentSong.id)
+      : null;
 
-      return;
-    }
+  const songId =
+    String(song.id);
 
-    playSong(song, songs);
+  // Toggle pause if this song is already playing.
+  if (
+    currentId === songId &&
+    isPlaying
+  ) {
 
+    pauseSong();
+
+    return;
   }
+
+  // Play selected song.
+  playSong(song, songs);
+
+}
 
 
 /* ==========================================
@@ -1189,20 +1197,45 @@ async function handleDownloadSong(song) {
               String(currentSong?.id) ===
               String(song.id);
 
-            const downloadDisabled =
-              !hasActiveSubscription ||
-              subscriptionLoading;
+        
 
             return (
 
-              <div
-                key={song.id}
-                className={`creator-song-row ${
-                  active
-                    ? "creator-song-playing"
-                    : ""
-                }`}
-              >
+            <div
+  key={song.id}
+
+  className={`creator-song-row ${
+    active
+      ? "creator-song-playing"
+      : ""
+  }`}
+
+onClick={(e) => {
+  e.stopPropagation();
+  handlePlaySong(song);
+}}
+
+  role="button"
+
+  tabIndex={0}
+
+  onKeyDown={(e) => {
+
+    if (
+      e.key === "Enter" ||
+      e.key === " "
+    ) {
+
+      e.preventDefault();
+
+      handlePlaySong(song);
+
+    }
+
+  }}
+
+  title={`Play ${song.title}`}
+>
 
                 {/* SONG COVER */}
 
@@ -1266,60 +1299,55 @@ async function handleDownloadSong(song) {
 
                 <div className="creator-song-actions">
 
-                  {/* DOWNLOAD BUTTON */}
+                {/* DOWNLOAD BUTTON */}
 
-                  <button
-                    type="button"
+<button
+  type="button"
 
-                    className={`creator-song-download-button ${
-                      downloadDisabled
-                        ? "download-disabled"
-                        : ""
-                    }`}
+  className={`creator-song-download-button ${
+    !hasActiveSubscription
+      ? "download-disabled"
+      : ""
+  }`}
 
-                    onClick={() =>
-                      handleDownloadSong(song)
-                    }
+  onClick={(e) => {
+    e.stopPropagation();
+    handleDownloadSong(song);
+  }}
 
-                    disabled={downloadDisabled}
+  title={
+    subscriptionLoading
+      ? "Checking subscription..."
+      : hasActiveSubscription
+        ? "Download song"
+        : "An active subscription is required"
+  }
 
-                    title={
-                      subscriptionLoading
-                        ? "Checking subscription..."
-                        : hasActiveSubscription
-                          ? "Download song"
-                          : "An active subscription is required"
-                    }
+  aria-label={
+    hasActiveSubscription
+      ? `Download ${song.title}`
+      : `Subscribe to download ${song.title}`
+  }
+>
 
-                    aria-label={
-                      hasActiveSubscription
-                        ? `Download ${song.title}`
-                        : `Subscribe to download ${song.title}`
-                    }
-                  >
+  {subscriptionLoading ? (
 
-                    {subscriptionLoading ? (
+    <Loader2
+      size={18}
+      className="creator-profile-spinner"
+    />
 
-                      <Loader2
-                        size={18}
-                        className="creator-profile-spinner"
-                      />
+  ) : hasActiveSubscription ? (
 
-                    ) : hasActiveSubscription ? (
+    <Download size={18} />
 
-                      <Download
-                        size={18}
-                      />
+  ) : (
 
-                    ) : (
+    <LockKeyhole size={18} />
 
-                      <LockKeyhole
-                        size={18}
-                      />
+  )}
 
-                    )}
-
-                  </button>
+</button>
 
 
                   {/* PLAY BUTTON */}

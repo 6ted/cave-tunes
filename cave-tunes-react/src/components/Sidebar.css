@@ -234,7 +234,13 @@
    COLLAPSED ICONS
 ========================================================== */
 
-@media (max-width: 1000px) {
+
+/* ==========================================================
+   TABLET VIEW
+   COLLAPSED ICONS
+========================================================== */
+
+@media (min-width: 769px) and (max-width: 1000px) {
 
   .sidebar {
     width: 90px;
@@ -243,7 +249,6 @@
   .sidebar-logo {
     display: flex;
     justify-content: center;
-
     padding: 25px 10px;
   }
 
@@ -526,5 +531,280 @@
   .sidebar-toggle.sidebar-open {
     display: none;
   }
+}
+
+
+
+/* ==========================================================
+   MOBILE LANDSCAPE
+   HIDDEN SIDEBAR + FLOATING ARROW
+   Covers screens up to 1000px wide
+========================================================== */
+
+@media screen and (min-width: 769px)
+and (max-width: 1000px)
+and (orientation: landscape) {
+
+  /* --------------------------------------------------------
+     OVERLAY
+  -------------------------------------------------------- */
+
+  .sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    top: 54px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: calc(100dvh - 54px);
+
+    background: rgba(0, 0, 0, 0.58);
+
+    z-index: 899;
+
+    cursor: pointer;
+
+    animation: sidebarOverlayFade 0.25s ease;
+  }
+
+
+  /* --------------------------------------------------------
+     SIDEBAR
+  -------------------------------------------------------- */
+
+  .sidebar {
+    position: fixed;
+
+    top: 54px;
+    left: 0;
+    bottom: 0;
+
+    width: 240px;
+    height: calc(100dvh - 54px);
+
+    transform: translateX(-100%);
+
+    box-shadow:
+      10px 0 30px rgba(0, 0, 0, 0.5);
+
+    z-index: 900;
+
+    transition: transform 0.35s ease;
+  }
+
+
+  /* OPEN */
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+
+  /* --------------------------------------------------------
+     LOGO
+  -------------------------------------------------------- */
+
+  .sidebar-logo {
+    display: flex;
+    justify-content: flex-start;
+    padding: 12px 20px;
+  }
+
+  .sidebar-logo h1 {
+    font-size: 23px;
+  }
+
+
+  /* --------------------------------------------------------
+     RESTORE MENU LABELS
+  -------------------------------------------------------- */
+
+  .sidebar-logo span,
+  .sidebar-link span,
+  .sidebar-auth-btn span {
+    display: inline-block !important;
+  }
+
+
+  /* --------------------------------------------------------
+     LINKS
+  -------------------------------------------------------- */
+
+  .sidebar-link {
+    height: 43px;
+
+    justify-content: flex-start;
+
+    padding: 0 15px;
+  }
+
+
+  /* --------------------------------------------------------
+     AUTH BUTTON
+  -------------------------------------------------------- */
+
+  .sidebar-auth-btn {
+    height: 43px;
+
+    justify-content: flex-start;
+
+    padding: 0 15px;
+  }
+
+
+  /* --------------------------------------------------------
+     FLOATING ARROW
+     SAME DESIGN AS MOBILE PORTRAIT
+  -------------------------------------------------------- */
+
+  .sidebar-toggle {
+    display: flex;
+
+    position: fixed;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 28px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: linear-gradient(
+      135deg,
+      #ebb113,
+      #ff8c00
+    );
+
+    color: #111;
+
+    border: none;
+
+    border-radius: 0 12px 12px 0;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.5);
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+
+  .sidebar-toggle svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 3;
+  }
+
+
+  .sidebar-toggle:hover {
+    width: 32px;
+
+    background: linear-gradient(
+      135deg,
+      #ffcc33,
+      #ebb113
+    );
+  }
+
+
+  /* HIDE ARROW WHEN SIDEBAR IS OPEN */
+
+  .sidebar-toggle.sidebar-open {
+    display: none;
+  }
+
+}
+
+/* ==========================================================
+   CHROME MOBILE VIEWPORT FIX
+   KEEP ALL SIDEBAR BUTTONS ACCESSIBLE
+========================================================== */
+
+@media (max-width: 1000px) {
+
+  .sidebar {
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-menu {
+    min-height: 0;
+
+    flex: 1 0 auto;
+
+    overflow: visible;
+
+    padding-bottom: 30px;
+  }
+
+  .sidebar-auth-wrapper {
+    flex-shrink: 0;
+
+    padding-bottom: 15px;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE PORTRAIT
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    height: auto;
+
+    top: 70px;
+    bottom: 0;
+
+    max-height: calc(100vh - 70px);
+    max-height: calc(100dvh - 70px);
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE LANDSCAPE
+========================================================== */
+
+@media (min-width: 769px)
+and (max-width: 1000px)
+and (orientation: landscape) {
+
+  .sidebar {
+    top: 54px;
+    bottom: 0;
+
+    height: auto;
+
+    max-height: calc(100vh - 54px);
+    max-height: calc(100dvh - 54px);
+
+    overflow-y: auto;
+  }
+
 }
 

@@ -504,3 +504,87 @@
     height: 17px;
   }
 }
+
+/* ==========================================================
+   MOBILE LANDSCAPE — ALWAYS USE CIRCULAR MINI PLAYER
+   Covers rotated phones and small landscape viewports
+========================================================== */
+
+@media screen
+and (min-width: 300px)
+and (max-width: 1000px)
+and (orientation: landscape) {
+
+  /* Default mobile landscape player: circular */
+  .player-bar {
+    left: auto;
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: rgba(18, 18, 18, 0.96);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Hide the full player controls */
+  .player-bar .player-bar-full-content {
+    display: none;
+  }
+
+  /* Always show the circular player */
+  .player-bar .mini-circle-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .player-bar .mini-cover-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player-bar .mini-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .player-bar .circular-progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    pointer-events: none;
+  }
+
+  /* Keep it circular even if React adds expanded-mobile */
+  .player-bar.expanded-mobile {
+    left: auto;
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .player-bar.expanded-mobile .player-bar-full-content {
+    display: none;
+  }
+
+  .player-bar.expanded-mobile .mini-circle-player {
+    display: flex;
+  }
+}

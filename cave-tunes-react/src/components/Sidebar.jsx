@@ -1,8 +1,9 @@
-// ======================================================
-// CAVE TUNES
-// SIDEBAR
-// components/Sidebar.jsx
-// ======================================================
+
+ // ======================================================
+ // CAVE TUNES
+ // SIDEBAR
+ // components/Sidebar.jsx
+ // ======================================================
 
 import {
   Home,
@@ -16,7 +17,6 @@ import {
   Tv,
   Building2,
   ChevronLeft,
-
   LogOut,
   LogIn,
   Bell,
@@ -47,8 +47,7 @@ function Sidebar({
   setOpen,
 }) {
 
-  const navigate =
-    useNavigate();
+  const navigate = useNavigate();
 
 
   // ====================================================
@@ -56,7 +55,6 @@ function Sidebar({
   // ====================================================
 
   const {
-   
     isAuthenticated,
     logout,
   } = useAuth();
@@ -69,9 +67,6 @@ function Sidebar({
   const {
     unreadCount,
   } = useNotifications();
-
-
-
 
 
   // ====================================================
@@ -93,10 +88,11 @@ function Sidebar({
     },
 
     {
-  name: "Community",
-  icon: MessageSquare,
-  path: "/feed",
-},
+      name: "Community",
+      icon: MessageSquare,
+      path: "/feed",
+    },
+
     {
       name: "Smart TV",
       icon: Tv,
@@ -109,7 +105,7 @@ function Sidebar({
       path: "/albums",
     },
 
-{
+    {
       name: "Charts",
       icon: ChartBar,
       path: "/charts",
@@ -133,12 +129,12 @@ function Sidebar({
       path: "/djs",
     },
 
- {name: "Radio",
+    {
+      name: "Radio",
       icon: Radio,
       path: "/radio",
     },
 
-    
     {
       name: "Record Labels",
       icon: Building2,
@@ -168,18 +164,36 @@ function Sidebar({
 
 
   // ====================================================
-  // CLOSE MOBILE SIDEBAR
+  // CLOSE SIDEBAR ON MOBILE PORTRAIT + LANDSCAPE
   // ====================================================
 
   function closeMobile() {
 
+    const isMobilePortrait =
+      window.innerWidth <= 768;
+
+    const isMobileLandscape =
+      window.matchMedia(
+        "(max-width: 900px) and (orientation: landscape)"
+      ).matches;
+
     if (
-      window.innerWidth <= 768
+      isMobilePortrait ||
+      isMobileLandscape
     ) {
-
       setOpen(false);
-
     }
+
+  }
+
+
+  // ====================================================
+  // TOGGLE SIDEBAR
+  // ====================================================
+
+  function toggleSidebar() {
+
+    setOpen((previous) => !previous);
 
   }
 
@@ -192,13 +206,9 @@ function Sidebar({
 
     closeMobile();
 
-
     if (logout) {
-
       logout();
-
     }
-
 
     navigate("/");
 
@@ -227,7 +237,7 @@ function Sidebar({
     <>
 
       {/* ==================================================
-          MOBILE OVERLAY
+          SIDEBAR OVERLAY
       ================================================== */}
 
       {open && (
@@ -246,21 +256,19 @@ function Sidebar({
       ================================================== */}
 
       <button
-
         type="button"
-
-        className="sidebar-toggle"
-
-        onClick={() =>
-          setOpen(!open)
+        className={
+          open
+            ? "sidebar-toggle sidebar-open"
+            : "sidebar-toggle"
         }
-
+        onClick={toggleSidebar}
         aria-label={
           open
             ? "Close sidebar"
             : "Open sidebar"
         }
-
+        aria-expanded={open}
       >
 
         <ChevronLeft size={22} />
@@ -280,64 +288,51 @@ function Sidebar({
         }
       >
 
-        {/* ==================================================
-            LOGO
-        ================================================== */}
+        {/* LOGO */}
 
         <div className="sidebar-logo">
-        <a href="/" className="sidebar-logo-link">
-          <h1>
-            Cave Tunes
-          </h1>
-        </a>
-        </div>
-        
 
-        {/* ==================================================
-            MENU
-        ================================================== */}
+          <a
+            href="/"
+            className="sidebar-logo-link"
+          >
+            <h1>
+              Cave Tunes
+            </h1>
+          </a>
+
+        </div>
+
+
+        {/* MENU */}
 
         <nav className="sidebar-menu">
 
           {menu.map((item) => {
 
-            const Icon =
-              item.icon;
-
+            const Icon = item.icon;
 
             return (
 
               <NavLink
-
                 key={item.path}
-
                 to={item.path}
-
                 onClick={closeMobile}
-
                 className={({ isActive }) =>
                   isActive
                     ? "sidebar-link active"
                     : "sidebar-link"
                 }
-
               >
 
-                {/* ICON */}
-
                 <Icon size={22} />
-
-
-                {/* NAME */}
 
                 <span>
                   {item.name}
                 </span>
 
 
-                {/* ==================================================
-                    NOTIFICATION BADGE
-                ================================================== */}
+                {/* NOTIFICATION BADGE */}
 
                 {
                   item.notification &&
@@ -367,11 +362,7 @@ function Sidebar({
           })}
 
 
-        
-
-          {/* ==================================================
-              LOGIN / LOGOUT
-          ================================================== */}
+          {/* LOGIN / LOGOUT */}
 
           <div className="sidebar-auth-wrapper">
 
@@ -381,13 +372,9 @@ function Sidebar({
                 ? (
 
                   <button
-
                     type="button"
-
                     className="sidebar-auth-btn logout-btn"
-
                     onClick={handleLogout}
-
                   >
 
                     <LogOut size={22} />
@@ -403,13 +390,9 @@ function Sidebar({
                 : (
 
                   <button
-
                     type="button"
-
                     className="sidebar-auth-btn login-btn"
-
                     onClick={handleLoginClick}
-
                   >
 
                     <LogIn size={22} />
@@ -435,6 +418,5 @@ function Sidebar({
   );
 
 }
-
 
 export default Sidebar;

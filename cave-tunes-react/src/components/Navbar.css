@@ -1269,3 +1269,251 @@
 .navbar-search-section-title svg {
   flex-shrink: 0;
 }
+
+
+
+
+/* ==========================================================
+   MOBILE LANDSCAPE NAVBAR
+   OPTIMIZED FOR 800x360 AND 900x400
+========================================================== */
+
+@media screen and (min-width: 769px)
+and (max-width: 1000px)
+and (orientation: landscape) {
+
+  /* --------------------------------------------------------
+     FULL WIDTH NAVBAR
+  -------------------------------------------------------- */
+
+  .navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 54px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    z-index: 1000;
+  }
+
+
+  /* --------------------------------------------------------
+     LEFT SIDE
+  -------------------------------------------------------- */
+
+  .navbar-left {
+    flex: 1;
+
+    min-width: 0;
+
+    margin-right: 10px;
+  }
+
+
+  /* --------------------------------------------------------
+     SEARCH
+  -------------------------------------------------------- */
+
+  .navbar-search {
+    width: 100%;
+
+    max-width: 300px;
+
+    min-width: 0;
+
+    flex-shrink: 1;
+  }
+
+
+  .search-box {
+    width: 100%;
+    height: 36px;
+
+    padding: 0 10px;
+
+    gap: 8px;
+
+    border-radius: 10px;
+  }
+
+
+  .search-box input {
+    font-size: 12px;
+  }
+
+
+  /* --------------------------------------------------------
+     SEARCH RESULTS
+  -------------------------------------------------------- */
+
+  .navbar-search-results {
+    position: fixed;
+
+    top: 56px;
+
+    left: 8px;
+    right: 8px;
+
+    width: auto;
+
+    max-width: none;
+
+    max-height: calc(100dvh - 64px);
+
+    overflow-y: auto;
+  }
+
+
+  /* --------------------------------------------------------
+     RIGHT SIDE
+  -------------------------------------------------------- */
+
+  .navbar-right {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+  }
+
+
+  /* --------------------------------------------------------
+     ICON BUTTONS
+  -------------------------------------------------------- */
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  /* --------------------------------------------------------
+     PROFILE
+  -------------------------------------------------------- */
+
+  .profile-btn {
+    height: 36px;
+
+    gap: 6px;
+
+    padding: 0 9px 0 3px;
+
+    border-radius: 12px;
+  }
+
+
+  .profile-btn img,
+  .profile-btn > svg {
+    width: 29px;
+    height: 29px;
+  }
+
+
+  .profile-btn span {
+    max-width: 75px;
+
+    font-size: 10px;
+  }
+
+
+  /* --------------------------------------------------------
+     LOGIN
+  -------------------------------------------------------- */
+
+  .login-btn {
+    height: 36px;
+
+    padding: 0 11px;
+
+    gap: 5px;
+
+    font-size: 10px;
+
+    border-radius: 9px;
+  }
+
+}
+
+
+/* ==========================================================
+   EXTRA COMPACT LANDSCAPE
+   SMALL HEIGHTS
+========================================================== */
+
+@media screen and (min-width: 769px)
+and (max-width: 1000px)
+and (orientation: landscape)
+and (max-height: 450px) {
+
+  .navbar {
+    height: 54px;
+  }
+
+
+  .navbar-search-results {
+    top: 56px;
+
+    max-height: calc(100dvh - 62px);
+  }
+
+}
+
+
+
+/* ==========================================================
+   MOBILE PORTRAIT SIDEBAR COMPATIBILITY
+========================================================== */
+
+@media screen and (max-width: 768px)
+and (orientation: portrait) {
+
+  .navbar {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .navbar-search-results {
+    left: 5px;
+    right: 5px;
+  }
+}
+
+
+/* ==========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================== */
+
+.navbar,
+.navbar-left,
+.navbar-search,
+.navbar-right {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.navbar-right {
+  flex-shrink: 0;
+}
+
+.navbar-search {
+  flex-shrink: 1;
+}
+
+
+
